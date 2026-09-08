@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HuertoHogar | Login</title>
+
+    <link rel="stylesheet" href="css/estilos.css">
+
+</head>
+
+<body>
+
+
+<header>
+
+    <h1>HuertoHogar</h1>
+
+    <nav>
+
+        <ul>
+
+            <li><a href="index.html">Inicio</a></li>
+
+            <li><a href="productos.html">Productos</a></li>
+
+            <li><a href="nosotros.html">Nosotros</a></li>
+
+            <li><a href="contacto.html">Contacto</a></li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+<section class="formulario">
+
+    <h2>Iniciar sesión</h2>
+
+
+    <form id="loginForm" novalidate>
+
+
+        <label for="correoLogin">
+            Correo
+        </label>
+
+        <input
+            type="email"
+            id="correoLogin"
+            maxlength="100"
+            autocomplete="email">
+
+        <small
+            id="errorCorreoLogin"
+            class="error">
+        </small>
+
+
+        <label for="passwordLogin">
+            Contraseña
+        </label>
+
+        <input
+            type="password"
+            id="passwordLogin"
+            minlength="4"
+            maxlength="10">
+
+        <small
+            id="errorPasswordLogin"
+            class="error">
+        </small>
+
+
+        <button
+            type="submit"
+            class="boton">
+            Ingresar
+        </button>
+
+
+        <p
+            id="loginExito"
+            class="exito">
+        </p>
+
+
+    </form>
+
+</section>
+
+</main>
+
+<footer>
+
+    <p>2026 HuertoHogar Sebastian Monsalve-Lucas Parra</p>
+
+</footer>
+
+<script src="js/login.js"></script>
+
+</body>
+
+</html>

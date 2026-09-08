@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HuertoHogar | Registro</title>
+
+    <link rel="stylesheet" href="css/estilos.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>🌿 HuertoHogar</h1>
+
+    <nav>
+
+        <ul>
+
+            <li><a href="index.html">Inicio</a></li>
+
+            <li><a href="productos.html">Productos</a></li>
+
+            <li><a href="nosotros.html">Nosotros</a></li>
+
+            <li><a href="contacto.html">Contacto</a></li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+<main>
+
+<section class="formulario">
+
+<h2>Registro de Usuario</h2>
+
+
+<form id="registroForm" novalidate>
+
+
+<label for="run">
+    RUN
+</label>
+
+<input
+    type="text"
+    id="run"
+    minlength="7"
+    maxlength="9"
+    placeholder="19011022K">
+
+<small id="errorRun" class="error"></small>
+
+
+<label for="nombreRegistro">
+    Nombre
+</label>
+
+<input
+    type="text"
+    id="nombreRegistro"
+    maxlength="50">
+
+<small
+    id="errorNombreRegistro"
+    class="error">
+</small>
+
+
+<label for="apellidosRegistro">
+    Apellidos
+</label>
+
+<input
+    type="text"
+    id="apellidosRegistro"
+    maxlength="100">
+
+<small
+    id="errorApellidosRegistro"
+    class="error">
+</small>
+
+
+<label for="correoRegistro">
+    Correo
+</label>
+
+<input
+    type="email"
+    id="correoRegistro"
+    maxlength="100">
+
+<small
+    id="errorCorreoRegistro"
+    class="error">
+</small>
+
+
+<label for="passwordRegistro">
+    Contraseña
+</label>
+
+<input
+    type="password"
+    id="passwordRegistro"
+    minlength="4"
+    maxlength="10">
+
+<small
+    id="errorPasswordRegistro"
+    class="error">
+</small>
+
+
+<label for="fechaNacimiento">
+    Fecha de nacimiento
+</label>
+
+<input
+    type="date"
+    id="fechaNacimiento">
+
+
+<label for="region">
+    Región
+</label>
+
+<select id="region">
+
+    <option value="">
+        Seleccione región
+    </option>
+
+</select>
+
+<small
+    id="errorRegion"
+    class="error">
+</small>
+
+
+<label for="comuna">
+    Comuna
+</label>
+
+<select id="comuna">
+
+    <option value="">
+        Seleccione comuna
+    </option>
+
+</select>
+
+<small
+    id="errorComuna"
+    class="error">
+</small>
+
+
+<label for="direccion">
+    Dirección
+</label>
+
+<input
+    type="text"
+    id="direccion"
+    maxlength="300">
+
+<small
+    id="errorDireccion"
+    class="error">
+</small>
+
+
+<button
+    type="submit"
+    class="boton">
+    Registrarse
+</button>
+
+
+<p
+    id="registroExito"
+    class="exito">
+</p>
+
+</form>
+
+</section>
+
+</main>
+
+<footer>
+
+    <p>2026 HuertoHogar Sebastian Monsalve-Lucas Parra</p>
+
+</footer>
+
+<script src="js/login.js"></script>
+
+</body>
+
+</html>
