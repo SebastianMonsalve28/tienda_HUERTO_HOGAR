@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HuertoHogar | Contacto</title>
+
+    <link rel="stylesheet" href="css/estilos.css">
+
+</head>
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        <h1>🌿 HuertoHogar</h1>
+    </div>
+
+    <nav>
+
+        <ul>
+
+            <li><a href="index.html">Inicio</a></li>
+
+            <li><a href="productos.html">Productos</a></li>
+
+            <li><a href="nosotros.html">Nosotros</a></li>
+
+            <li><a href="blog.html">Blog</a></li>
+
+            <li><a href="contacto.html">Contacto</a></li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+<section class="formulario">
+
+    <h2>Contacto</h2>
+
+    <form id="contactoForm" novalidate>
+
+
+        <label for="nombre">
+            Nombre
+        </label>
+
+        <input
+            type="text"
+            id="nombre"
+            maxlength="100"
+            autocomplete="name">
+
+        <small
+            class="error"
+            id="errorNombre">
+        </small>
+
+
+        <label for="correo">
+            Correo
+        </label>
+
+        <input
+            type="email"
+            id="correo"
+            maxlength="100"
+            autocomplete="email"
+            placeholder="ejemplo@gmail.com">
+
+        <small
+            class="error"
+            id="errorCorreo">
+        </small>
+
+
+        <label for="comentario">
+            Comentario
+        </label>
+
+        <textarea
+            id="comentario"
+            maxlength="500"
+            rows="5"
+            placeholder="Escribe tu mensaje">
+        </textarea>
+
+        <small
+            class="error"
+            id="errorComentario">
+        </small>
+
+
+        <button
+            type="submit"
+            class="boton">
+            Enviar
+        </button>
+
+
+        <button
+            type="reset"
+            class="boton secundario">
+            Limpiar
+        </button>
+
+
+        <p
+            id="mensajeExito"
+            class="exito">
+        </p>
+
+
+    </form>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <p>2026 HuertoHogar Sebastian Monsalve-Lucas Parra</p>
+
+</footer>
+
+
+<script src="js/contacto.js"></script>
+<script src="js/carrito.js"></script>
+
+</body>
+
+</html>
