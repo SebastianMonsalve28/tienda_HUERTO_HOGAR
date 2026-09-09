@@ -6,34 +6,34 @@ const productos = [
         precio: 1200,
         stock: 150,
         descripcion: "Manzanas Fuji crujientes y dulces cultivadas en el Valle del Maule.",
-        imagen: "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=700&q=80"
+        imagen: "img/manzanas.jpg"
     },
 
     {
         codigo: "FR002",
-        nombre: "Naranjas Valencia",
+        nombre: "Naranjas",
         precio: 1000,
         stock: 200,
         descripcion: "Naranjas jugosas y ricas en vitamina C.",
-        imagen: "https://images.unsplash.com/photo-1547514701-42782101795e?auto=format&fit=crop&w=700&q=80"
+        imagen: "img/naranjas.jpg"
     },
 
     {
         codigo: "FR003",
-        nombre: "Plátanos Cavendish",
+        nombre: "Plátanos",
         precio: 800,
         stock: 250,
         descripcion: "Plátanos maduros y dulces ideales para desayuno.",
-        imagen: "https://images.unsplash.com/photo-1603833665858-e61d17a86224?auto=format&fit=crop&w=700&q=80"
+        imagen: "img/platanos.jpg"
     },
 
     {
         codigo: "VR001",
-        nombre: "Zanahorias Orgánicas",
+        nombre: "Zanahorias",
         precio: 900,
         stock: 100,
         descripcion: "Zanahorias cultivadas sin pesticidas.",
-        imagen: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=700&q=80"
+        imagen: "img/zanahorias.jpg"
     },
 
     {
@@ -42,7 +42,7 @@ const productos = [
         precio: 700,
         stock: 80,
         descripcion: "Espinacas frescas ideales para ensaladas.",
-        imagen: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&w=700&q=80"
+        imagen: "img/espinacas.jpg"
     },
 
     {
@@ -51,16 +51,16 @@ const productos = [
         precio: 1500,
         stock: 120,
         descripcion: "Pimientos rojos, amarillos y verdes.",
-        imagen: "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?auto=format&fit=crop&w=700&q=80"
+        imagen: "img/pimientos.jpg"
     },
 
     {
         codigo: "PO001",
-        nombre: "Miel Orgánica",
+        nombre: "Miel",
         precio: 5000,
         stock: 50,
         descripcion: "Miel pura producida por apicultores locales.",
-        imagen: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=700&q=80"
+        imagen: "img/miel.jpg"
     }
 
 ];
