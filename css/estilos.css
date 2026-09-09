@@ -508,4 +508,43 @@ footer {
 
     }
 
+    .admin {
+
+    display: flex;
+
+    min-height: 100vh;
+
+}
+
+
+.admin aside {
+
+    width: 220px;
+
+    background-color: #2E8B57;
+
+    padding: 30px;
+
+}
+
+
+.admin aside h2 {
+
+    color: white;
+
+}
+
+
+.admin aside a {
+
+    display: block;
+
+    color: white;
+
+    text-decoration: none;
+
+    margin: 15px 0;
+
+}
+
 }
