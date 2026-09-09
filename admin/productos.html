@@ -3,12 +3,15 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<title>Administrador | Productos</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet"
-      href="../css/estilos.css">
+    <title>Administrador | Productos</title>
+
+    <link rel="stylesheet"
+          href="../css/estilos.css">
 
 </head>
 
@@ -18,110 +21,323 @@
 <div class="admin">
 
 
-<aside>
+    <aside class="menu-admin">
 
-<h2>Administrador</h2>
+        <h2>HuertoHogar</h2>
 
-<a href="index.html">
-Inicio
-</a>
+        <h3>Administrador</h3>
 
-<a href="productos.html">
-Productos
-</a>
+        <a href="index.html">
+            Inicio
+        </a>
 
-<a href="nuevo-producto.html">
-Nuevo Producto
-</a>
+        <a href="productos.html">
+            Productos
+        </a>
 
-<a href="usuarios.html">
-Usuarios
-</a>
+        <a href="nuevo-producto.html">
+            Nuevo Producto
+        </a>
 
-<a href="../index.html">
-Volver
-</a>
+        <a href="usuarios.html">
+            Usuarios
+        </a>
 
-</aside>
+        <a href="nuevo-usuario.html">
+            Nuevo Usuario
+        </a>
 
+        <a href="../index.html">
+            Volver a la tienda
+        </a>
 
-<main class="contenido">
-
-
-<h1>Productos</h1>
-
-
-<a
-class="boton"
-href="nuevo-producto.html">
-
-Nuevo Producto
-
-</a>
-
-<table border="1">
-
-<tr>
-
-<th>Código</th>
-
-<th>Nombre</th>
-
-<th>Precio</th>
-
-<th>Stock</th>
-
-<th>Acción</th>
-
-</tr>
+    </aside>
 
 
-<tr>
+    <main class="contenido-admin">
 
-<td>FR001</td>
+        <div class="titulo-admin">
 
-<td>Manzanas Fuji</td>
+            <div>
 
-<td>$1.200</td>
+                <h1>Productos</h1>
 
-<td>150</td>
+                <p>
+                    Productos disponibles en HuertoHogar.
+                </p>
 
-<td>
-
-<a href="editar-producto.html">
-Editar
-</a>
-
-</td>
-
-</tr>
+            </div>
 
 
-<tr>
+            <a
+                href="nuevo-producto.html"
+                class="boton">
 
-<td>FR002</td>
+                + Nuevo Producto
 
-<td>Naranjas Valencia</td>
+            </a>
 
-<td>$1.000</td>
-
-<td>200</td>
-
-<td>
-
-<a href="editar-producto.html">
-Editar
-</a>
-
-</td>
-
-</tr>
+        </div>
 
 
-</table>
+        <div class="contenedor-tabla">
+
+            <table class="tabla-admin">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Código</th>
+
+                        <th>Nombre</th>
+
+                        <th>Precio</th>
+
+                        <th>Stock</th>
+
+                        <th>Acción</th>
+
+                    </tr>
+
+                </thead>
 
 
-</main>
+                <tbody>
+
+
+                    <tr>
+
+                        <td>FR001</td>
+
+                        <td>Manzanas Fuji</td>
+
+                        <td>$1.200</td>
+
+                        <td>150 kg</td>
+
+                        <td>
+
+                            <a
+                                class="editar"
+                                href="editar-producto.html">
+
+                                Editar
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>FR002</td>
+
+                        <td>Naranjas</td>
+
+                        <td>$1.000</td>
+
+                        <td>200 kg</td>
+
+                        <td>
+
+                            <a
+                                class="editar"
+                                href="editar-producto.html">
+
+                                Editar
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>FR003</td>
+
+                        <td>Plátanos</td>
+
+                        <td>$800</td>
+
+                        <td>250 kg</td>
+
+                        <td>
+
+                            <a
+                                class="editar"
+                                href="editar-producto.html">
+
+                                Editar
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>VR001</td>
+
+                        <td>Zanahorias</td>
+
+                        <td>$900</td>
+
+                        <td>100 kg</td>
+
+                        <td>
+
+                            <a
+                                class="editar"
+                                href="editar-producto.html">
+
+                                Editar
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>VR002</td>
+
+                        <td>Espinacas</td>
+
+                        <td>$700</td>
+
+                        <td>80 bolsas</td>
+
+                        <td>
+
+                            <a
+                                class="editar"
+                                href="editar-producto.html">
+
+                                Editar
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>VR003</td>
+
+                        <td>Pimientos Tricolores</td>
+
+                        <td>$1.500</td>
+
+                        <td>120 kg</td>
+
+                        <td>
+
+                            <a
+                                class="editar"
+                                href="editar-producto.html">
+
+                                Editar
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>PO001</td>
+
+                        <td>Miel</td>
+
+                        <td>$5.000</td>
+
+                        <td>50 frascos</td>
+
+                        <td>
+
+                            <a
+                                class="editar"
+                                href="editar-producto.html">
+
+                                Editar
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>PO003</td>
+
+                        <td>Quinua Orgánica</td>
+
+                        <td>Por definir</td>
+
+                        <td>Disponible</td>
+
+                        <td>
+
+                            <a
+                                class="editar"
+                                href="editar-producto.html">
+
+                                Editar
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>PL001</td>
+
+                        <td>Leche Entera</td>
+
+                        <td>Por definir</td>
+
+                        <td>Disponible</td>
+
+                        <td>
+
+                            <a
+                                class="editar"
+                                href="editar-producto.html">
+
+                                Editar
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
 
 </div>
 

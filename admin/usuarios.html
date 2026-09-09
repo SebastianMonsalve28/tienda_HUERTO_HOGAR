@@ -3,13 +3,15 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<title>Administrador | Usuarios</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<link
-rel="stylesheet"
-href="../css/estilos.css">
+    <title>Administrador | Usuarios</title>
+
+    <link rel="stylesheet"
+          href="../css/estilos.css">
 
 </head>
 
@@ -19,91 +21,192 @@ href="../css/estilos.css">
 <div class="admin">
 
 
-<aside>
+    <aside class="menu-admin">
 
-<h2>Administrador</h2>
+        <h2>HuertoHogar</h2>
 
-<a href="index.html">
-Inicio
-</a>
+        <h3>Administrador</h3>
 
-<a href="productos.html">
-Productos
-</a>
+        <a href="index.html">
+            Inicio
+        </a>
 
-<a href="usuarios.html">
-Usuarios
-</a>
+        <a href="productos.html">
+            Productos
+        </a>
 
-<a href="nuevo-usuario.html">
-Nuevo Usuario
-</a>
+        <a href="nuevo-producto.html">
+            Nuevo Producto
+        </a>
 
-<a href="../index.html">
-Volver
-</a>
+        <a href="usuarios.html">
+            Usuarios
+        </a>
 
-</aside>
+        <a href="nuevo-usuario.html">
+            Nuevo Usuario
+        </a>
 
+        <a href="../index.html">
+            Volver a la tienda
+        </a>
 
-<main class="contenido">
-
-
-<h1>Usuarios</h1>
-
-
-<a
-class="boton"
-href="nuevo-usuario.html">
-
-Nuevo Usuario
-
-</a>
+    </aside>
 
 
-<table border="1">
+    <main class="contenido-admin">
 
 
-<tr>
+        <div class="titulo-admin">
 
-<th>RUN</th>
+            <div>
 
-<th>Nombre</th>
+                <h1>Usuarios</h1>
 
-<th>Correo</th>
+                <p>
+                    Usuarios registrados en HuertoHogar.
+                </p>
 
-<th>Tipo</th>
-
-<th>Acción</th>
-
-</tr>
+            </div>
 
 
-<tr>
+            <a
+                href="nuevo-usuario.html"
+                class="boton">
 
-<td>19011022K</td>
+                + Nuevo Usuario
 
-<td>Usuario Ejemplo</td>
+            </a>
 
-<td>usuario@gmail.com</td>
-
-<td>Cliente</td>
-
-<td>
-
-<a href="editar-usuario.html">
-Editar
-</a>
-
-</td>
-
-</tr>
+        </div>
 
 
-</table>
+        <div class="contenedor-tabla">
+
+            <table class="tabla-admin">
+
+                <thead>
+
+                    <tr>
+
+                        <th>RUN</th>
+
+                        <th>Nombre</th>
+
+                        <th>Correo</th>
+
+                        <th>Tipo</th>
+
+                        <th>Acción</th>
+
+                    </tr>
+
+                </thead>
 
 
-</main>
+                <tbody>
+
+
+                    <tr>
+
+                        <td>19011022K</td>
+
+                        <td>Usuario Ejemplo</td>
+
+                        <td>usuario@gmail.com</td>
+
+                        <td>
+
+                            <span class="tipo-usuario">
+                                Cliente
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <a
+                                class="editar"
+                                href="editar-usuario.html">
+
+                                Editar
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>201234567</td>
+
+                        <td>Administrador</td>
+
+                        <td>admin@duoc.cl</td>
+
+                        <td>
+
+                            <span class="tipo-admin">
+                                Administrador
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <a
+                                class="editar"
+                                href="editar-usuario.html">
+
+                                Editar
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>211234568</td>
+
+                        <td>Vendedor Ejemplo</td>
+
+                        <td>vendedor@gmail.com</td>
+
+                        <td>
+
+                            <span class="tipo-vendedor">
+                                Vendedor
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <a
+                                class="editar"
+                                href="editar-usuario.html">
+
+                                Editar
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
 
 </div>
 
