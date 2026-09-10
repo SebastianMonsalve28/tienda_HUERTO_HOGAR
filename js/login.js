@@ -1,17 +1,9 @@
-/* =========================================
-   CORREOS PERMITIDOS
-========================================= */
-
 const dominiosPermitidos = [
     "duoc.cl",
     "profesor.duoc.cl",
     "gmail.com"
 ];
 
-
-/* =========================================
-   VALIDAR CORREO
-========================================= */
 
 function correoPermitido(correo) {
 
@@ -42,11 +34,6 @@ function correoPermitido(correo) {
 
 }
 
-
-/* =========================================
-   VALIDAR NOMBRE Y APELLIDOS
-========================================= */
-
 function nombreValido(texto) {
 
     const expresion =
@@ -58,11 +45,6 @@ function nombreValido(texto) {
     );
 
 }
-
-
-/* =========================================
-   VALIDAR RUN CHILENO
-========================================= */
 
 function validarRun(run) {
 
@@ -229,9 +211,6 @@ if (loginForm) {
             let correcto = true;
 
 
-            /* =============================
-               VALIDAR CORREO LOGIN
-            ============================= */
 
             if (
                 correo.value.trim() === ""
@@ -269,9 +248,6 @@ if (loginForm) {
             }
 
 
-            /* =============================
-               VALIDAR CONTRASEÑA LOGIN
-            ============================= */
 
             if (
                 password.value === ""
@@ -297,9 +273,6 @@ if (loginForm) {
             }
 
 
-            /* =============================
-               LOGIN CORRECTO
-            ============================= */
 
             if (correcto) {
 
@@ -344,10 +317,6 @@ if (loginForm) {
 
 }
 
-
-/* =========================================
-   REGIONES Y COMUNAS
-========================================= */
 
 const regiones = {
 
@@ -504,11 +473,6 @@ if (
 
 }
 
-
-/* =========================================
-   REGISTRO
-========================================= */
-
 const registroForm =
     document.getElementById(
         "registroForm"
@@ -571,10 +535,6 @@ if (registroForm) {
             let correcto = true;
 
 
-            /* =================================
-               LIMPIAR MENSAJES
-            ================================= */
-
             document.getElementById(
                 "errorRun"
             ).textContent = "";
@@ -617,10 +577,6 @@ if (registroForm) {
 
             mensajeExito.textContent = "";
 
-
-            /* =================================
-               VALIDAR RUN
-            ================================= */
 
             if (
                 run.value.trim() === ""
@@ -665,9 +621,6 @@ if (registroForm) {
             }
 
 
-            /* =================================
-               VALIDAR NOMBRE
-            ================================= */
 
             if (
                 nombre.value.trim() === ""
@@ -711,9 +664,6 @@ if (registroForm) {
             }
 
 
-            /* =================================
-               VALIDAR APELLIDOS
-            ================================= */
 
             if (
                 apellidos.value.trim() === ""
@@ -757,10 +707,6 @@ if (registroForm) {
             }
 
 
-            /* =================================
-               VALIDAR CORREO
-            ================================= */
-
             if (
                 correo.value.trim() === ""
             ) {
@@ -803,10 +749,6 @@ if (registroForm) {
             }
 
 
-            /* =================================
-               VALIDAR CONTRASEÑA
-            ================================= */
-
             if (
                 password.value === ""
             ) {
@@ -835,9 +777,6 @@ if (registroForm) {
             }
 
 
-            /* =================================
-               VALIDAR REGIÓN
-            ================================= */
 
             if (
                 region.value === ""
@@ -853,9 +792,6 @@ if (registroForm) {
             }
 
 
-            /* =================================
-               VALIDAR COMUNA
-            ================================= */
 
             if (
                 comuna.value === ""
@@ -871,9 +807,6 @@ if (registroForm) {
             }
 
 
-            /* =================================
-               VALIDAR DIRECCIÓN
-            ================================= */
 
             if (
                 direccion.value.trim() === ""
@@ -902,9 +835,6 @@ if (registroForm) {
             }
 
 
-            /* =================================
-               REGISTRO CORRECTO
-            ================================= */
 
             if (correcto) {
 
