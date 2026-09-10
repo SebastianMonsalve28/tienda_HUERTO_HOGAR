@@ -148,10 +148,6 @@ function validarRun(run) {
 }
 
 
-/* =========================================
-   LOGIN
-========================================= */
-
 const loginForm =
     document.getElementById(
         "loginForm"
