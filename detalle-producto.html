@@ -10,7 +10,8 @@
 
     <title>HuertoHogar | Producto</title>
 
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet"
+          href="css/estilos.css">
 
 </head>
 
@@ -19,58 +20,100 @@
 
 <header>
 
-    <h1>HuertoHogar</h1>
+    <div class="logo">
+        <h1>HuertoHogar</h1>
+    </div>
+
 
     <nav>
 
         <ul>
 
-            <li><a href="index.html">Inicio</a></li>
+            <li>
+                <a href="index.html">
+                    Inicio
+                </a>
+            </li>
 
-            <li><a href="productos.html">Productos</a></li>
+            <li>
+                <a href="productos.html">
+                    Productos
+                </a>
+            </li>
 
-            <li><a href="nosotros.html">Nosotros</a></li>
+            <li>
+                <a href="nosotros.html">
+                    Nosotros
+                </a>
+            </li>
 
-            <li><a href="contacto.html">Contacto</a></li>
+            <li>
+                <a href="blog.html">
+                    Blog
+                </a>
+            </li>
+
+            <li>
+                <a href="contacto.html">
+                    Contacto
+                </a>
+            </li>
 
         </ul>
 
     </nav>
 
 
-    <a href="carrito.html">
+    <div class="usuario">
 
-         Carrito
-        (<span id="contadorCarrito">0</span>)
+        <a href="login.html">
+            Iniciar sesión
+        </a>
 
-    </a>
+
+        <a
+            href="carrito.html"
+            class="enlace-carrito">
+
+            Carrito
+            (<span id="contadorCarrito">0</span>)
+
+        </a>
+
+    </div>
 
 </header>
 
 
 <main>
 
-<section class="contenido">
+    <section class="contenido">
 
-    <a href="productos.html">
-        ← Volver a productos
-    </a>
+        <a href="productos.html">
+            ← Volver a productos
+        </a>
 
-    <div id="detalleProducto"></div>
 
-</section>
+        <div id="detalleProducto">
+
+        </div>
+
+    </section>
 
 </main>
 
 
 <footer>
 
-    <p>2026 HuertoHogar Sebastian Monsalve-Lucas Parra</p>
+    <p>
+        2026 HuertoHogar - Sebastian Monsalve - Lucas Parra
+    </p>
 
 </footer>
 
-<script src="js/productos.js"></script>
 
+<script src="js/notificaciones.js"></script>
+<script src="js/productos.js"></script>
 <script src="js/carrito.js"></script>
 
 </body>

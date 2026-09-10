@@ -3,118 +3,195 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<title>Nuevo Usuario</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<link
-rel="stylesheet"
-href="../css/estilos.css">
+    <title>
+        Administrador | Editar Usuario
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../css/estilos.css">
 
 </head>
 
-<body>
+<body class="admin-body">
 
 
-<main class="formulario">
+<header class="admin-header">
+
+    <h2>
+        Panel de Administración - HuertoHogar
+    </h2>
+
+    <a
+        href="../index.html"
+        class="boton">
+
+        Volver a la tienda
+
+    </a>
+
+</header>
 
 
-<h1>Nuevo Usuario</h1>
+<div class="admin-shell">
 
 
-<form>
+<aside class="menu-admin">
+
+    <h2>HuertoHogar</h2>
+
+    <h3>Administrador</h3>
+
+    <a href="index.html">
+        Inicio
+    </a>
+
+    <a href="productos.html">
+        Gestión de Productos
+    </a>
+
+    <a href="nuevo-producto.html">
+        Nuevo Producto
+    </a>
+
+    <a
+        href="usuarios.html"
+        class="activo">
+
+        Gestión de Usuarios
+
+    </a>
+
+    <a href="nuevo-usuario.html">
+        Nuevo Usuario
+    </a>
+
+</aside>
 
 
-<label>RUN</label>
-
-<input
-type="text"
-minlength="7"
-maxlength="9"
-required>
+<main class="contenido-admin">
 
 
-<label>Nombre</label>
-
-<input
-type="text"
-maxlength="50"
-required>
+<h1>
+    Editar Usuario
+</h1>
 
 
-<label>Apellidos</label>
-
-<input
-type="text"
-maxlength="100"
-required>
+<section class="form-admin">
 
 
-<label>Correo</label>
-
-<input
-type="email"
-maxlength="100"
-required>
+<form action="usuarios.html">
 
 
 <label>
-Fecha de nacimiento
+    RUN
 </label>
 
-<input type="date">
+<input
+    type="text"
+    value="19011022K"
+    required>
 
 
 <label>
-Tipo Usuario
+    Nombre
+</label>
+
+<input
+    type="text"
+    value="Usuario"
+    required>
+
+
+<label>
+    Apellidos
+</label>
+
+<input
+    type="text"
+    value="Ejemplo"
+    required>
+
+
+<label>
+    Correo
+</label>
+
+<input
+    type="email"
+    value="usuario@gmail.com"
+    required>
+
+
+<label>
+    Tipo de Usuario
 </label>
 
 <select>
 
-<option>
-Administrador
-</option>
+    <option selected>
+        Cliente
+    </option>
 
-<option>
-Cliente
-</option>
+    <option>
+        Administrador
+    </option>
 
-<option>
-Vendedor
-</option>
+    <option>
+        Vendedor
+    </option>
 
 </select>
 
 
-<label>Dirección</label>
+<label>
+    Dirección
+</label>
 
 <input
-type="text"
-maxlength="300"
-required>
+    type="text"
+    value="Santiago"
+    required>
+
+
+<div class="acciones-form-admin">
 
 
 <button
-class="boton"
-type="submit">
+    class="boton"
+    type="submit">
 
-Guardar Usuario
+    Guardar cambios
 
 </button>
 
 
 <a
-class="boton secundario"
-href="usuarios.html">
+    href="usuarios.html"
+    class="boton secundario">
 
-Volver
+    Cancelar
 
 </a>
 
 
+</div>
+
+
 </form>
 
+
+</section>
+
+
 </main>
+
+</div>
 
 </body>
 

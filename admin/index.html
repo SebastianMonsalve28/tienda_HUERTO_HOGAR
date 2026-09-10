@@ -2,46 +2,79 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Administrador | HuertoHogar</title>
 
-    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet"
+          href="../css/estilos.css">
+
 </head>
 
-<body>
+<body class="admin-body">
 
-<div class="admin">
+
+<header class="admin-header">
+
+    <h2>
+        Panel de Administración - HuertoHogar
+    </h2>
+
+    <a
+        href="../index.html"
+        class="boton">
+
+        Volver a la tienda
+
+    </a>
+
+</header>
+
+
+<div class="admin-shell">
+
 
     <aside class="menu-admin">
 
-        <h2>HuertoHogar</h2>
+        <h2>
+            HuertoHogar
+        </h2>
 
-        <h3>Administrador</h3>
+        <h3>
+            Administrador
+        </h3>
 
-        <a href="index.html">
+
+        <a
+            href="index.html"
+            class="activo">
+
             Inicio
+
         </a>
+
 
         <a href="productos.html">
-            Productos
+            Gestión de Productos
         </a>
+
 
         <a href="nuevo-producto.html">
             Nuevo Producto
         </a>
 
+
         <a href="usuarios.html">
-            Usuarios
+            Gestión de Usuarios
         </a>
+
 
         <a href="nuevo-usuario.html">
             Nuevo Usuario
-        </a>
-
-        <a href="../index.html">
-            Volver a la tienda
         </a>
 
     </aside>
@@ -49,30 +82,49 @@
 
     <main class="contenido-admin">
 
-        <h1>Hola Administrador</h1>
 
-        <p>
-            Desde aquí puedes administrar los productos
-            y usuarios de HuertoHogar.
-        </p>
+        <div class="encabezado-admin">
+
+            <div>
+
+                <h1>
+                    Panel de Control
+                </h1>
+
+                <p>
+                    Administra de forma ordenada
+                    los productos y usuarios
+                    de HuertoHogar.
+                </p>
+
+            </div>
+
+        </div>
 
 
         <section class="tarjetas-admin">
 
+
             <article class="tarjeta-admin">
 
-                <h2>Productos</h2>
+                <h2>
+                    Productos
+                </h2>
+
+                <p class="numero-admin">
+                    7
+                </p>
 
                 <p>
-                    Revisa los productos disponibles,
-                    agrega nuevos productos o edita su información.
+                    Productos registrados
+                    actualmente en el catálogo.
                 </p>
 
                 <a
                     href="productos.html"
                     class="boton">
 
-                    Ver Productos
+                    Ver productos
 
                 </a>
 
@@ -81,28 +133,60 @@
 
             <article class="tarjeta-admin">
 
-                <h2>Usuarios</h2>
+                <h2>
+                    Usuarios
+                </h2>
+
+                <p class="numero-admin">
+                    3
+                </p>
 
                 <p>
-                    Revisa los usuarios registrados
-                    y administra su información.
+                    Usuarios disponibles
+                    en el panel.
                 </p>
 
                 <a
                     href="usuarios.html"
                     class="boton">
 
-                    Ver Usuarios
+                    Ver usuarios
 
                 </a>
 
             </article>
 
+
+            <article class="tarjeta-admin">
+
+                <h2>
+                    Acceso rápido
+                </h2>
+
+                <p>
+                    Crea rápidamente
+                    un nuevo producto.
+                </p>
+
+                <a
+                    href="nuevo-producto.html"
+                    class="boton secundario">
+
+                    Nuevo producto
+
+                </a>
+
+            </article>
+
+
         </section>
+
 
     </main>
 
+
 </div>
+
 
 </body>
 
