@@ -3,137 +3,227 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<title>Nuevo Producto</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet"
-href="../css/estilos.css">
+    <title>
+        Administrador | Nuevo Producto
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../css/estilos.css">
 
 </head>
 
-<body>
+<body class="admin-body">
 
-<main class="formulario">
 
-<h1>Nuevo Producto</h1>
+<header class="admin-header">
 
-<form>
+    <h2>
+        Panel de Administración - HuertoHogar
+    </h2>
 
-<label>
-Código
+    <a
+        href="../index.html"
+        class="boton">
+
+        Volver a la tienda
+
+    </a>
+
+</header>
+
+
+<div class="admin-shell">
+
+
+<aside class="menu-admin">
+
+    <h2>HuertoHogar</h2>
+
+    <h3>Administrador</h3>
+
+    <a href="index.html">
+        Inicio
+    </a>
+
+    <a href="productos.html">
+        Gestión de Productos
+    </a>
+
+    <a
+        href="nuevo-producto.html"
+        class="activo">
+
+        Nuevo Producto
+
+    </a>
+
+    <a href="usuarios.html">
+        Gestión de Usuarios
+    </a>
+
+    <a href="nuevo-usuario.html">
+        Nuevo Usuario
+    </a>
+
+</aside>
+
+
+<main class="contenido-admin">
+
+
+<h1>
+    Nuevo Producto
+</h1>
+
+
+<section class="form-admin">
+
+
+<form action="productos.html">
+
+
+<label for="codigoProducto">
+    Código
 </label>
 
 <input
-type="text"
-minlength="3"
-required>
+    id="codigoProducto"
+    type="text"
+    minlength="3"
+    required>
 
 
-<label>
-Nombre
+<label for="nombreProducto">
+    Nombre
 </label>
 
 <input
-type="text"
-maxlength="100"
-required>
+    id="nombreProducto"
+    type="text"
+    maxlength="100"
+    required>
 
 
-<label>
-Descripción
+<label for="descripcionProducto">
+    Descripción
 </label>
 
 <textarea
-maxlength="500">
+    id="descripcionProducto"
+    maxlength="500"
+    rows="4">
 </textarea>
 
 
-<label>
-Precio
+<label for="precioProducto">
+    Precio
 </label>
 
 <input
-type="number"
-min="0"
-required>
+    id="precioProducto"
+    type="number"
+    min="0"
+    required>
 
 
-<label>
-Stock
+<label for="stockProducto">
+    Stock
 </label>
 
 <input
-type="number"
-min="0"
-required>
+    id="stockProducto"
+    type="number"
+    min="0"
+    required>
 
 
-<label>
-Stock Crítico
+<label for="stockCritico">
+    Stock Crítico
 </label>
 
 <input
-type="number"
-min="0">
+    id="stockCritico"
+    type="number"
+    min="0">
 
 
-<label>
-Categoría
+<label for="categoriaProducto">
+    Categoría
 </label>
 
-<select required>
+<select
+    id="categoriaProducto"
+    required>
 
-<option value="">
-Seleccione
-</option>
+    <option value="">
+        Seleccione
+    </option>
 
-<option>
-Frutas Frescas
-</option>
+    <option>
+        Frutas Frescas
+    </option>
 
-<option>
-Verduras Orgánicas
-</option>
+    <option>
+        Verduras Orgánicas
+    </option>
 
-<option>
-Productos Orgánicos
-</option>
+    <option>
+        Productos Orgánicos
+    </option>
 
-<option>
-Productos Lácteos
-</option>
+    <option>
+        Productos Lácteos
+    </option>
 
 </select>
 
 
-<label>
-Imagen
+<label for="imagenProducto">
+    Imagen
 </label>
 
-<input type="file">
+<input
+    id="imagenProducto"
+    type="file">
 
 
-<button
-class="boton"
-type="submit">
+<div class="acciones-form-admin">
 
-Guardar
+    <button
+        class="boton"
+        type="submit">
 
-</button>
+        Guardar
 
-<a
-class="boton secundario"
-href="productos.html">
+    </button>
 
-Volver
 
-</a>
+    <a
+        href="productos.html"
+        class="boton secundario">
+
+        Cancelar
+
+    </a>
+
+</div>
 
 
 </form>
 
+
+</section>
+
+
 </main>
+
+</div>
 
 </body>
 
