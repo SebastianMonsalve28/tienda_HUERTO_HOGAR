@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap');
 
 
-/* ========================================
-   GENERAL
-======================================== */
-
 * {
     box-sizing: border-box;
 }
@@ -31,10 +27,6 @@ img {
 }
 
 
-/* ========================================
-   HEADER
-======================================== */
-
 header {
     background-color: white;
     display: flex;
@@ -52,9 +44,6 @@ header {
 }
 
 
-/* ========================================
-   NAVEGACIÓN
-======================================== */
 
 nav ul {
     list-style: none;
@@ -77,9 +66,6 @@ nav a:hover {
 }
 
 
-/* ========================================
-   USUARIO Y SESIÓN
-======================================== */
 
 .usuario {
     display: flex;
@@ -147,9 +133,6 @@ nav a:hover {
 }
 
 
-/* ========================================
-   PRINCIPAL
-======================================== */
 
 .principal {
     display: flex;
@@ -178,9 +161,6 @@ nav a:hover {
 }
 
 
-/* ========================================
-   CONTENIDO
-======================================== */
 
 .contenido {
     max-width: 1200px;
@@ -194,10 +174,6 @@ nav a:hover {
     text-align: center;
 }
 
-
-/* ========================================
-   BOTONES
-======================================== */
 
 .boton {
     display: inline-block;
@@ -230,9 +206,6 @@ nav a:hover {
 }
 
 
-/* ========================================
-   PRODUCTOS
-======================================== */
 
 .productos {
     display: flex;
@@ -330,9 +303,6 @@ nav a:hover {
 }
 
 
-/* ========================================
-   FILTROS PRODUCTOS
-======================================== */
 
 .catalogo-layout {
     display: grid;
@@ -378,9 +348,6 @@ nav a:hover {
 }
 
 
-/* ========================================
-   DETALLE PRODUCTO
-======================================== */
 
 .detalle-producto {
     display: grid;
@@ -424,9 +391,6 @@ nav a:hover {
 }
 
 
-/* ========================================
-   TARJETAS
-======================================== */
 
 .tarjeta {
     background-color: white;
@@ -446,9 +410,6 @@ nav a:hover {
 }
 
 
-/* ========================================
-   VIDEO
-======================================== */
 
 .video {
     text-align: center;
@@ -464,9 +425,6 @@ nav a:hover {
 }
 
 
-/* ========================================
-   FORMULARIOS
-======================================== */
 
 .formulario {
     background-color: white;
@@ -521,9 +479,6 @@ textarea:focus {
 }
 
 
-/* ========================================
-   CARRITO
-======================================== */
 
 .carrito-titulo {
     display: flex;
@@ -679,9 +634,7 @@ textarea:focus {
 }
 
 
-/* ========================================
-   NOTIFICACIONES
-======================================== */
+
 
 #notificaciones {
     position: fixed;
@@ -768,9 +721,6 @@ textarea:focus {
 }
 
 
-/* ========================================
-   ADMINISTRADOR
-======================================== */
 
 .admin-body {
     background-color: #F7F7F7;
@@ -877,10 +827,6 @@ textarea:focus {
 }
 
 
-/* ========================================
-   TARJETAS ADMIN
-======================================== */
-
 .tarjetas-admin {
     display: grid;
     grid-template-columns:
@@ -914,10 +860,6 @@ textarea:focus {
     margin: 8px 0;
 }
 
-
-/* ========================================
-   TABLAS ADMIN
-======================================== */
 
 .contenedor-tabla {
     background-color: white;
@@ -970,9 +912,6 @@ textarea:focus {
 }
 
 
-/* ========================================
-   FORMULARIOS ADMIN
-======================================== */
 
 .form-admin {
     max-width: 760px;
@@ -990,9 +929,6 @@ textarea:focus {
 }
 
 
-/* ========================================
-   FOOTER
-======================================== */
 
 footer {
     background-color: #333333;
@@ -1003,9 +939,6 @@ footer {
 }
 
 
-/* ========================================
-   RESPONSIVE
-======================================== */
 
 @media (max-width: 900px) {
 
