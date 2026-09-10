@@ -17,13 +17,13 @@
 
 <body>
 
-
 <header>
 
     <div class="logo">
-        <h1>HuertoHogar</h1>
-    </div>
 
+        <h1>HuertoHogar</h1>
+
+    </div>
 
     <nav>
 
@@ -63,7 +63,6 @@
 
     </nav>
 
-
     <div class="usuario">
 
         <a href="login.html">
@@ -87,135 +86,114 @@
 
 </header>
 
-
 <main>
 
-<section class="contenido">
+    <section class="contenido">
 
+        <div class="carrito-titulo">
 
-    <div class="carrito-titulo">
+            <div>
 
+                <h1>
+                    Mi carrito de compras
+                </h1>
 
-        <div>
+                <p>
+                    Revisa los productos
+                    agregados a tu carrito.
+                </p>
 
-            <h1>
-                Mi carrito de compras
-            </h1>
+            </div>
 
-            <p>
-                Revisa tus productos,
-                modifica cantidades o elimina
-                lo que ya no necesites.
-            </p>
+            <a
+                href="productos.html"
+                class="boton secundario">
+
+                Seguir comprando
+
+            </a>
 
         </div>
 
+        <div class="carrito-layout">
 
-        <a
-            href="productos.html"
-            class="boton secundario">
+            <div
+                id="carritoContenido"
+                class="carrito-lista">
 
-            Seguir comprando
+            </div>
 
-        </a>
+            <aside class="resumen-carrito">
 
+                <h2>
+                    Resumen
+                </h2>
 
-    </div>
+                <div class="linea-resumen">
 
+                    <span>
+                        Productos
+                    </span>
 
-    <div class="carrito-layout">
+                    <span id="cantidadResumen">
+                        0
+                    </span>
 
+                </div>
 
-        <div
-            id="carritoContenido"
-            class="carrito-lista">
+                <div class="linea-resumen">
+
+                    <span>
+                        Subtotal
+                    </span>
+
+                    <span id="subtotalCarrito">
+                        $0
+                    </span>
+
+                </div>
+
+                <div class="linea-resumen total-resumen">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <span id="totalCarrito">
+                        $0
+                    </span>
+
+                </div>
+
+                <div class="botones-carrito">
+
+                    <button
+                        id="pagarCarrito"
+                        class="boton"
+                        type="button">
+
+                        Realizar compra
+
+                    </button>
+
+                    <button
+                        id="vaciarCarrito"
+                        class="boton secundario"
+                        type="button">
+
+                        Vaciar carrito
+
+                    </button>
+
+                </div>
+
+            </aside>
 
         </div>
 
-
-        <aside class="resumen-carrito">
-
-
-            <h2>
-                Resumen
-            </h2>
-
-
-            <div class="linea-resumen">
-
-                <span>
-                    Productos
-                </span>
-
-                <span id="cantidadResumen">
-                    0
-                </span>
-
-            </div>
-
-
-            <div class="linea-resumen">
-
-                <span>
-                    Subtotal
-                </span>
-
-                <span id="subtotalCarrito">
-                    $0
-                </span>
-
-            </div>
-
-
-            <div class="linea-resumen total-resumen">
-
-                <span>
-                    Total
-                </span>
-
-                <span id="totalCarrito">
-                    $0
-                </span>
-
-            </div>
-
-
-            <div class="botones-carrito">
-
-
-                <button
-                    id="pagarCarrito"
-                    class="boton"
-                    type="button">
-
-                    Realizar compra
-
-                </button>
-
-
-                <button
-                    id="vaciarCarrito"
-                    class="boton secundario"
-                    type="button">
-
-                    Vaciar carrito
-
-                </button>
-
-
-            </div>
-
-
-        </aside>
-
-
-    </div>
-
-
-</section>
+    </section>
 
 </main>
-
 
 <footer>
 
@@ -227,6 +205,7 @@
 
 <script src="js/notificaciones.js"></script>
 <script src="js/productos.js"></script>
+<script src="js/sesion.js"></script>
 <script src="js/carrito.js"></script>
 
 </body>

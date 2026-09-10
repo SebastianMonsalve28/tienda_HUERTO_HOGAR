@@ -2,135 +2,210 @@ const formulario =
     document.getElementById("contactoForm");
 
 
-formulario.addEventListener(
-    "submit",
-    function(evento) {
+const dominiosPermitidos = [
+    "duoc.cl",
+    "profesor.duoc.cl",
+    "gmail.com"
+];
 
 
-        evento.preventDefault();
+function nombreValido(nombre) {
+
+    const expresion =
+        /^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$/;
+
+    return expresion.test(nombre);
+
+}
 
 
-        const nombre =
-            document.getElementById("nombre");
+function correoValido(correo) {
+
+    const expresion =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!expresion.test(correo)) {
+        return false;
+    }
 
 
-        const correo =
-            document.getElementById("correo");
+    const dominio =
+        correo
+            .split("@")[1]
+            .toLowerCase();
 
 
-        const comentario =
-            document.getElementById("comentario");
+    return dominiosPermitidos.includes(
+        dominio
+    );
+
+}
 
 
-        const errorNombre =
-            document.getElementById("errorNombre");
+if (formulario) {
 
 
-        const errorCorreo =
-            document.getElementById("errorCorreo");
+    formulario.addEventListener(
+        "submit",
+        function(evento) {
 
 
-        const errorComentario =
-            document.getElementById("errorComentario");
+            evento.preventDefault();
 
 
-        const mensajeExito =
-            document.getElementById("mensajeExito");
+            const nombre =
+                document.getElementById("nombre");
 
 
-        errorNombre.textContent = "";
-
-        errorCorreo.textContent = "";
-
-        errorComentario.textContent = "";
-
-        mensajeExito.textContent = "";
+            const correo =
+                document.getElementById("correo");
 
 
-        let correcto = true;
+            const comentario =
+                document.getElementById("comentario");
 
 
-
-        if (nombre.value.trim() === "") {
-
-            errorNombre.textContent =
-                "El nombre es obligatorio.";
-
-            correcto = false;
-
-        }
+            const errorNombre =
+                document.getElementById("errorNombre");
 
 
-
-        const dominios = [
-
-            "@duoc.cl",
-
-            "@profesor.duoc.cl",
-
-            "@gmail.com"
-
-        ];
+            const errorCorreo =
+                document.getElementById("errorCorreo");
 
 
-
-        if (correo.value !== "") {
-
-
-            let correoCorrecto =
-                dominios.some(function(dominio) {
-
-                    return correo.value
-                        .toLowerCase()
-                        .endsWith(dominio);
-
-                });
+            const errorComentario =
+                document.getElementById(
+                    "errorComentario"
+                );
 
 
-            if (!correoCorrecto) {
+            const mensajeExito =
+                document.getElementById(
+                    "mensajeExito"
+                );
 
-                errorCorreo.textContent =
-                    "Correo no permitido.";
+
+            errorNombre.textContent = "";
+
+            errorCorreo.textContent = "";
+
+            errorComentario.textContent = "";
+
+            mensajeExito.textContent = "";
+
+
+            let correcto = true;
+
+
+            /* NOMBRE */
+
+            if (
+                nombre.value.trim() === ""
+            ) {
+
+                errorNombre.textContent =
+                    "El nombre es obligatorio.";
 
                 correcto = false;
 
             }
 
+            else if (
+                nombre.value.trim().length > 100
+            ) {
+
+                errorNombre.textContent =
+                    "El nombre no puede superar los 100 caracteres.";
+
+                correcto = false;
+
+            }
+
+            else if (
+                !nombreValido(
+                    nombre.value.trim()
+                )
+            ) {
+
+                errorNombre.textContent =
+                    "El nombre solo puede contener letras.";
+
+                correcto = false;
+
+            }
+
+
+            /* CORREO */
+
+            if (
+                correo.value.trim() !== ""
+            ) {
+
+
+                if (
+                    correo.value.length > 100
+                ) {
+
+                    errorCorreo.textContent =
+                        "El correo no puede superar los 100 caracteres.";
+
+                    correcto = false;
+
+                }
+
+                else if (
+                    !correoValido(
+                        correo.value.trim()
+                    )
+                ) {
+
+                    errorCorreo.textContent =
+                        "Use un correo @duoc.cl, @profesor.duoc.cl o @gmail.com.";
+
+                    correcto = false;
+
+                }
+
+            }
+
+
+            /* COMENTARIO */
+
+            if (
+                comentario.value.trim() === ""
+            ) {
+
+                errorComentario.textContent =
+                    "El comentario es obligatorio.";
+
+                correcto = false;
+
+            }
+
+            else if (
+                comentario.value.length > 500
+            ) {
+
+                errorComentario.textContent =
+                    "El comentario no puede superar los 500 caracteres.";
+
+                correcto = false;
+
+            }
+
+
+            /* CORRECTO */
+
+            if (correcto) {
+
+                mensajeExito.textContent =
+                    "Mensaje enviado correctamente.";
+
+                formulario.reset();
+
+            }
+
         }
+    );
 
-
-
-        if (comentario.value.trim() === "") {
-
-            errorComentario.textContent =
-                "El comentario es obligatorio.";
-
-            correcto = false;
-
-        }
-
-
-
-        if (comentario.value.length > 500) {
-
-            errorComentario.textContent =
-                "Máximo 500 caracteres.";
-
-            correcto = false;
-
-        }
-
-
-
-        if (correcto) {
-
-            mensajeExito.textContent =
-                "Mensaje enviado correctamente.";
-
-
-            formulario.reset();
-
-        }
-
-    }
-);
+}

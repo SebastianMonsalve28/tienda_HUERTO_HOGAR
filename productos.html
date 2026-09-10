@@ -2,12 +2,17 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>HuertoHogar | Productos</title>
 
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet"
+          href="css/estilos.css">
+
 </head>
 
 <body>
@@ -15,17 +20,47 @@
 <header>
 
     <div class="logo">
+
         <h1>HuertoHogar</h1>
+
     </div>
 
     <nav>
+
         <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="productos.html">Productos</a></li>
-            <li><a href="nosotros.html">Nosotros</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
+
+            <li>
+                <a href="index.html">
+                    Inicio
+                </a>
+            </li>
+
+            <li>
+                <a href="productos.html">
+                    Productos
+                </a>
+            </li>
+
+            <li>
+                <a href="nosotros.html">
+                    Nosotros
+                </a>
+            </li>
+
+            <li>
+                <a href="blog.html">
+                    Blog
+                </a>
+            </li>
+
+            <li>
+                <a href="contacto.html">
+                    Contacto
+                </a>
+            </li>
+
         </ul>
+
     </nav>
 
     <div class="usuario">
@@ -38,34 +73,39 @@
             Registrarse
         </a>
 
-        <a href="carrito.html" class="enlace-carrito">
-            Carrito (<span id="contadorCarrito">0</span>)
+        <a
+            href="carrito.html"
+            class="enlace-carrito">
+
+            Carrito
+            (<span id="contadorCarrito">0</span>)
+
         </a>
 
     </div>
 
 </header>
 
-
 <main>
 
     <section class="contenido">
 
-        <h1>Nuestros Productos</h1>
+        <h1>
+            Nuestros Productos
+        </h1>
 
         <p>
-            Revisa nuestro catálogo de productos frescos
-            y filtra por categoría.
+            Revisa nuestro catálogo
+            de productos frescos.
         </p>
-
 
         <div class="catalogo-layout">
 
-
             <aside class="filtros-productos">
 
-                <h3>Categorías</h3>
-
+                <h3>
+                    Categorías
+                </h3>
 
                 <button
                     class="filtro-btn activo"
@@ -75,7 +115,6 @@
 
                 </button>
 
-
                 <button
                     class="filtro-btn"
                     data-categoria="frutas">
@@ -84,7 +123,6 @@
 
                 </button>
 
-
                 <button
                     class="filtro-btn"
                     data-categoria="verduras">
@@ -92,7 +130,6 @@
                     Verduras Orgánicas
 
                 </button>
-
 
                 <button
                     class="filtro-btn"
@@ -104,20 +141,17 @@
 
             </aside>
 
-
             <div
                 id="listaProductos"
                 class="productos-grid">
 
             </div>
 
-
         </div>
 
     </section>
 
 </main>
-
 
 <footer>
 
@@ -127,9 +161,9 @@
 
 </footer>
 
-
 <script src="js/notificaciones.js"></script>
 <script src="js/productos.js"></script>
+<script src="js/sesion.js"></script>
 <script src="js/carrito.js"></script>
 
 </body>

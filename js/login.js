@@ -1,29 +1,179 @@
+/* =========================================
+   CORREOS PERMITIDOS
+========================================= */
+
 const dominiosPermitidos = [
-
-    "@duoc.cl",
-
-    "@profesor.duoc.cl",
-
-    "@gmail.com"
-
+    "duoc.cl",
+    "profesor.duoc.cl",
+    "gmail.com"
 ];
+
+
+/* =========================================
+   VALIDAR CORREO
+========================================= */
 
 function correoPermitido(correo) {
 
-    return dominiosPermitidos.some(
-        function(dominio) {
+    correo = correo.trim().toLowerCase();
 
-            return correo
-                .toLowerCase()
-                .endsWith(dominio);
+    const formatoCorreo =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        }
+
+    if (!formatoCorreo.test(correo)) {
+
+        return false;
+
+    }
+
+
+    const partes =
+        correo.split("@");
+
+
+    const dominio =
+        partes[1];
+
+
+    return dominiosPermitidos.includes(
+        dominio
     );
 
 }
 
+
+/* =========================================
+   VALIDAR NOMBRE Y APELLIDOS
+========================================= */
+
+function nombreValido(texto) {
+
+    const expresion =
+        /^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s'-]+$/;
+
+
+    return expresion.test(
+        texto.trim()
+    );
+
+}
+
+
+/* =========================================
+   VALIDAR RUN CHILENO
+========================================= */
+
+function validarRun(run) {
+
+    run =
+        run
+            .trim()
+            .toUpperCase();
+
+
+    /*
+        Debe venir sin puntos ni guion.
+
+        Ejemplo de formato:
+        190110222
+    */
+
+    if (
+        !/^[0-9]{6,8}[0-9K]$/.test(run)
+    ) {
+
+        return false;
+
+    }
+
+
+    const cuerpo =
+        run.slice(0, -1);
+
+
+    const digitoIngresado =
+        run.slice(-1);
+
+
+    let suma = 0;
+
+    let multiplicador = 2;
+
+
+    for (
+        let i = cuerpo.length - 1;
+        i >= 0;
+        i--
+    ) {
+
+        suma =
+            suma +
+            Number(cuerpo[i]) *
+            multiplicador;
+
+
+        multiplicador++;
+
+
+        if (
+            multiplicador === 8
+        ) {
+
+            multiplicador = 2;
+
+        }
+
+    }
+
+
+    const resultado =
+        11 - (suma % 11);
+
+
+    let digitoCorrecto;
+
+
+    if (
+        resultado === 11
+    ) {
+
+        digitoCorrecto = "0";
+
+    }
+
+    else if (
+        resultado === 10
+    ) {
+
+        digitoCorrecto = "K";
+
+    }
+
+    else {
+
+        digitoCorrecto =
+            resultado.toString();
+
+    }
+
+
+    return (
+        digitoIngresado ===
+        digitoCorrecto
+    );
+
+}
+
+
+/* =========================================
+   LOGIN
+========================================= */
+
 const loginForm =
-    document.getElementById("loginForm");
+    document.getElementById(
+        "loginForm"
+    );
 
 
 if (loginForm) {
@@ -67,6 +217,8 @@ if (loginForm) {
                 );
 
 
+            /* LIMPIAR ERRORES */
+
             errorCorreo.textContent = "";
 
             errorPassword.textContent = "";
@@ -77,11 +229,27 @@ if (loginForm) {
             let correcto = true;
 
 
+            /* =============================
+               VALIDAR CORREO LOGIN
+            ============================= */
 
-            if (correo.value.trim() === "") {
+            if (
+                correo.value.trim() === ""
+            ) {
 
                 errorCorreo.textContent =
                     "El correo es obligatorio.";
+
+                correcto = false;
+
+            }
+
+            else if (
+                correo.value.trim().length > 100
+            ) {
+
+                errorCorreo.textContent =
+                    "El correo no puede superar los 100 caracteres.";
 
                 correcto = false;
 
@@ -94,15 +262,29 @@ if (loginForm) {
             ) {
 
                 errorCorreo.textContent =
-                    "Correo no permitido.";
+                    "Use un correo @duoc.cl, @profesor.duoc.cl o @gmail.com.";
 
                 correcto = false;
 
             }
 
 
+            /* =============================
+               VALIDAR CONTRASEÑA LOGIN
+            ============================= */
 
             if (
+                password.value === ""
+            ) {
+
+                errorPassword.textContent =
+                    "La contraseña es obligatoria.";
+
+                correcto = false;
+
+            }
+
+            else if (
                 password.value.length < 4 ||
                 password.value.length > 10
             ) {
@@ -115,22 +297,60 @@ if (loginForm) {
             }
 
 
+            /* =============================
+               LOGIN CORRECTO
+            ============================= */
 
             if (correcto) {
+
+
+                /*
+                    Guardamos el correo para indicar
+                    que existe una sesión iniciada.
+                */
+
+                localStorage.setItem(
+                    "sesionHuertoHogar",
+                    correo.value
+                        .trim()
+                        .toLowerCase()
+                );
+
 
                 exito.textContent =
                     "Inicio de sesión correcto.";
 
-                loginForm.reset();
+
+                /*
+                    Después de un momento
+                    vuelve al inicio.
+                */
+
+                setTimeout(
+                    function() {
+
+                        window.location.href =
+                            "index.html";
+
+                    },
+                    700
+                );
 
             }
 
         }
     );
 
+
 }
 
+
+/* =========================================
+   REGIONES Y COMUNAS
+========================================= */
+
 const regiones = {
+
 
     "Región Metropolitana": [
 
@@ -175,21 +395,31 @@ const regiones = {
 
     ]
 
+
 };
 
+
 const region =
-    document.getElementById("region");
+    document.getElementById(
+        "region"
+    );
 
 
 const comuna =
-    document.getElementById("comuna");
+    document.getElementById(
+        "comuna"
+    );
 
 
+if (
+    region &&
+    comuna
+) {
 
-if (region && comuna) {
 
-
-    Object.keys(regiones).forEach(
+    Object.keys(
+        regiones
+    ).forEach(
         function(nombreRegion) {
 
 
@@ -215,6 +445,7 @@ if (region && comuna) {
     );
 
 
+    /* CAMBIAR COMUNAS */
 
     region.addEventListener(
         "change",
@@ -233,7 +464,9 @@ if (region && comuna) {
 
 
             const comunas =
-                regiones[region.value];
+                regiones[
+                    region.value
+                ];
 
 
             if (comunas) {
@@ -271,6 +504,11 @@ if (region && comuna) {
 
 }
 
+
+/* =========================================
+   REGISTRO
+========================================= */
+
 const registroForm =
     document.getElementById(
         "registroForm"
@@ -278,6 +516,7 @@ const registroForm =
 
 
 if (registroForm) {
+
 
     registroForm.addEventListener(
         "submit",
@@ -288,7 +527,9 @@ if (registroForm) {
 
 
             const run =
-                document.getElementById("run");
+                document.getElementById(
+                    "run"
+                );
 
 
             const nombre =
@@ -321,9 +562,18 @@ if (registroForm) {
                 );
 
 
+            const mensajeExito =
+                document.getElementById(
+                    "registroExito"
+                );
+
+
             let correcto = true;
 
 
+            /* =================================
+               LIMPIAR MENSAJES
+            ================================= */
 
             document.getElementById(
                 "errorRun"
@@ -365,22 +615,59 @@ if (registroForm) {
             ).textContent = "";
 
 
+            mensajeExito.textContent = "";
+
+
+            /* =================================
+               VALIDAR RUN
+            ================================= */
 
             if (
-                run.value.length < 7 ||
-                run.value.length > 9
+                run.value.trim() === ""
             ) {
 
                 document.getElementById(
                     "errorRun"
                 ).textContent =
-                    "RUN inválido.";
+                    "El RUN es obligatorio.";
+
+                correcto = false;
+
+            }
+
+            else if (
+                run.value.trim().length < 7 ||
+                run.value.trim().length > 9
+            ) {
+
+                document.getElementById(
+                    "errorRun"
+                ).textContent =
+                    "El RUN debe tener entre 7 y 9 caracteres.";
+
+                correcto = false;
+
+            }
+
+            else if (
+                !validarRun(
+                    run.value
+                )
+            ) {
+
+                document.getElementById(
+                    "errorRun"
+                ).textContent =
+                    "Ingrese un RUN válido, sin puntos ni guion.";
 
                 correcto = false;
 
             }
 
 
+            /* =================================
+               VALIDAR NOMBRE
+            ================================= */
 
             if (
                 nombre.value.trim() === ""
@@ -389,13 +676,44 @@ if (registroForm) {
                 document.getElementById(
                     "errorNombreRegistro"
                 ).textContent =
-                    "Nombre obligatorio.";
+                    "El nombre es obligatorio.";
+
+                correcto = false;
+
+            }
+
+            else if (
+                nombre.value.trim().length > 50
+            ) {
+
+                document.getElementById(
+                    "errorNombreRegistro"
+                ).textContent =
+                    "El nombre no puede superar los 50 caracteres.";
+
+                correcto = false;
+
+            }
+
+            else if (
+                !nombreValido(
+                    nombre.value
+                )
+            ) {
+
+                document.getElementById(
+                    "errorNombreRegistro"
+                ).textContent =
+                    "El nombre solo puede contener letras.";
 
                 correcto = false;
 
             }
 
 
+            /* =================================
+               VALIDAR APELLIDOS
+            ================================= */
 
             if (
                 apellidos.value.trim() === ""
@@ -404,16 +722,72 @@ if (registroForm) {
                 document.getElementById(
                     "errorApellidosRegistro"
                 ).textContent =
-                    "Apellidos obligatorios.";
+                    "Los apellidos son obligatorios.";
+
+                correcto = false;
+
+            }
+
+            else if (
+                apellidos.value.trim().length > 100
+            ) {
+
+                document.getElementById(
+                    "errorApellidosRegistro"
+                ).textContent =
+                    "Los apellidos no pueden superar los 100 caracteres.";
+
+                correcto = false;
+
+            }
+
+            else if (
+                !nombreValido(
+                    apellidos.value
+                )
+            ) {
+
+                document.getElementById(
+                    "errorApellidosRegistro"
+                ).textContent =
+                    "Los apellidos solo pueden contener letras.";
 
                 correcto = false;
 
             }
 
 
+            /* =================================
+               VALIDAR CORREO
+            ================================= */
 
             if (
-                correo.value.trim() === "" ||
+                correo.value.trim() === ""
+            ) {
+
+                document.getElementById(
+                    "errorCorreoRegistro"
+                ).textContent =
+                    "El correo es obligatorio.";
+
+                correcto = false;
+
+            }
+
+            else if (
+                correo.value.trim().length > 100
+            ) {
+
+                document.getElementById(
+                    "errorCorreoRegistro"
+                ).textContent =
+                    "El correo no puede superar los 100 caracteres.";
+
+                correcto = false;
+
+            }
+
+            else if (
                 !correoPermitido(
                     correo.value
                 )
@@ -422,15 +796,31 @@ if (registroForm) {
                 document.getElementById(
                     "errorCorreoRegistro"
                 ).textContent =
-                    "Correo no permitido.";
+                    "Use un correo @duoc.cl, @profesor.duoc.cl o @gmail.com.";
 
                 correcto = false;
 
             }
 
 
+            /* =================================
+               VALIDAR CONTRASEÑA
+            ================================= */
 
             if (
+                password.value === ""
+            ) {
+
+                document.getElementById(
+                    "errorPasswordRegistro"
+                ).textContent =
+                    "La contraseña es obligatoria.";
+
+                correcto = false;
+
+            }
+
+            else if (
                 password.value.length < 4 ||
                 password.value.length > 10
             ) {
@@ -438,13 +828,16 @@ if (registroForm) {
                 document.getElementById(
                     "errorPasswordRegistro"
                 ).textContent =
-                    "Debe tener entre 4 y 10 caracteres.";
+                    "La contraseña debe tener entre 4 y 10 caracteres.";
 
                 correcto = false;
 
             }
 
 
+            /* =================================
+               VALIDAR REGIÓN
+            ================================= */
 
             if (
                 region.value === ""
@@ -453,13 +846,16 @@ if (registroForm) {
                 document.getElementById(
                     "errorRegion"
                 ).textContent =
-                    "Seleccione región.";
+                    "Seleccione una región.";
 
                 correcto = false;
 
             }
 
 
+            /* =================================
+               VALIDAR COMUNA
+            ================================= */
 
             if (
                 comuna.value === ""
@@ -468,13 +864,16 @@ if (registroForm) {
                 document.getElementById(
                     "errorComuna"
                 ).textContent =
-                    "Seleccione comuna.";
+                    "Seleccione una comuna.";
 
                 correcto = false;
 
             }
 
 
+            /* =================================
+               VALIDAR DIRECCIÓN
+            ================================= */
 
             if (
                 direccion.value.trim() === ""
@@ -483,22 +882,49 @@ if (registroForm) {
                 document.getElementById(
                     "errorDireccion"
                 ).textContent =
-                    "Dirección obligatoria.";
+                    "La dirección es obligatoria.";
+
+                correcto = false;
+
+            }
+
+            else if (
+                direccion.value.trim().length > 300
+            ) {
+
+                document.getElementById(
+                    "errorDireccion"
+                ).textContent =
+                    "La dirección no puede superar los 300 caracteres.";
 
                 correcto = false;
 
             }
 
 
+            /* =================================
+               REGISTRO CORRECTO
+            ================================= */
 
             if (correcto) {
 
-                document.getElementById(
-                    "registroExito"
-                ).textContent =
+
+                mensajeExito.textContent =
                     "Usuario registrado correctamente.";
 
+
                 registroForm.reset();
+
+
+                comuna.innerHTML = `
+
+                    <option value="">
+
+                        Seleccione comuna
+
+                    </option>
+
+                `;
 
             }
 

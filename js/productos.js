@@ -46,7 +46,7 @@ const productos = [
 
     {
         codigo: "VR002",
-        nombre: "Espinacas Frescas",
+        nombre: "Espinacas",
         categoria: "verduras",
         categoriaNombre: "Verduras Orgánicas",
         precio: 700,
@@ -145,15 +145,6 @@ function mostrarProductos(lista = productos) {
                     ${formatoPrecio(producto.precio)}
 
                 </p>
-
-
-                <p class="stock-producto">
-
-                    Stock disponible:
-                    ${producto.stock}
-
-                </p>
-
 
                 <div class="acciones-producto">
 
@@ -290,18 +281,6 @@ function mostrarDetalle() {
                 ${producto.codigo}
 
             </p>
-
-
-            <p>
-
-                <strong>
-                    Stock:
-                </strong>
-
-                ${producto.stock}
-
-            </p>
-
 
             <div class="selector-cantidad">
 

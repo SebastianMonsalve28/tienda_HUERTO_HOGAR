@@ -2,9 +2,7 @@
 <html lang="es">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
@@ -12,14 +10,24 @@
 
     <link rel="stylesheet"
           href="../css/estilos.css">
-
 </head>
 
-<body>
+<body class="admin-body">
 
+<header class="admin-header">
 
-<div class="admin">
+    <h2>
+        Panel de Administración - HuertoHogar
+    </h2>
 
+    <a href="../index.html"
+       class="boton">
+        Volver a la tienda
+    </a>
+
+</header>
+
+<div class="admin-shell">
 
     <aside class="menu-admin">
 
@@ -31,8 +39,9 @@
             Inicio
         </a>
 
-        <a href="productos.html">
-            Productos
+        <a href="productos.html"
+           class="activo">
+            Gestión de Productos
         </a>
 
         <a href="nuevo-producto.html">
@@ -40,45 +49,38 @@
         </a>
 
         <a href="usuarios.html">
-            Usuarios
+            Gestión de Usuarios
         </a>
 
         <a href="nuevo-usuario.html">
             Nuevo Usuario
         </a>
 
-        <a href="../index.html">
-            Volver a la tienda
-        </a>
-
     </aside>
-
 
     <main class="contenido-admin">
 
-        <div class="titulo-admin">
+        <div class="encabezado-admin">
 
             <div>
 
-                <h1>Productos</h1>
+                <h1>
+                    Gestión de Productos
+                </h1>
 
                 <p>
-                    Productos disponibles en HuertoHogar.
+                    Listado de productos disponibles
+                    en HuertoHogar.
                 </p>
 
             </div>
 
-
-            <a
-                href="nuevo-producto.html"
-                class="boton">
-
+            <a href="nuevo-producto.html"
+               class="boton">
                 + Nuevo Producto
-
             </a>
 
         </div>
-
 
         <div class="contenedor-tabla">
 
@@ -87,249 +89,115 @@
                 <thead>
 
                     <tr>
-
                         <th>Código</th>
-
                         <th>Nombre</th>
-
+                        <th>Categoría</th>
                         <th>Precio</th>
-
                         <th>Stock</th>
-
                         <th>Acción</th>
-
                     </tr>
 
                 </thead>
 
-
                 <tbody>
 
-
                     <tr>
-
                         <td>FR001</td>
-
                         <td>Manzanas Fuji</td>
-
+                        <td>Frutas Frescas</td>
                         <td>$1.200</td>
-
                         <td>150 kg</td>
-
                         <td>
-
-                            <a
-                                class="editar"
-                                href="editar-producto.html">
-
+                            <a class="editar"
+                               href="editar-producto.html">
                                 Editar
-
                             </a>
-
                         </td>
-
                     </tr>
 
-
                     <tr>
-
                         <td>FR002</td>
-
                         <td>Naranjas</td>
-
+                        <td>Frutas Frescas</td>
                         <td>$1.000</td>
-
                         <td>200 kg</td>
-
                         <td>
-
-                            <a
-                                class="editar"
-                                href="editar-producto.html">
-
+                            <a class="editar"
+                               href="editar-producto.html">
                                 Editar
-
                             </a>
-
                         </td>
-
                     </tr>
 
-
                     <tr>
-
                         <td>FR003</td>
-
                         <td>Plátanos</td>
-
+                        <td>Frutas Frescas</td>
                         <td>$800</td>
-
                         <td>250 kg</td>
-
                         <td>
-
-                            <a
-                                class="editar"
-                                href="editar-producto.html">
-
+                            <a class="editar"
+                               href="editar-producto.html">
                                 Editar
-
                             </a>
-
                         </td>
-
                     </tr>
 
-
                     <tr>
-
                         <td>VR001</td>
-
                         <td>Zanahorias</td>
-
+                        <td>Verduras Orgánicas</td>
                         <td>$900</td>
-
                         <td>100 kg</td>
-
                         <td>
-
-                            <a
-                                class="editar"
-                                href="editar-producto.html">
-
+                            <a class="editar"
+                               href="editar-producto.html">
                                 Editar
-
                             </a>
-
                         </td>
-
                     </tr>
 
-
                     <tr>
-
                         <td>VR002</td>
-
-                        <td>Espinacas</td>
-
+                        <td>Espinacas Frescas</td>
+                        <td>Verduras Orgánicas</td>
                         <td>$700</td>
-
                         <td>80 bolsas</td>
-
                         <td>
-
-                            <a
-                                class="editar"
-                                href="editar-producto.html">
-
+                            <a class="editar"
+                               href="editar-producto.html">
                                 Editar
-
                             </a>
-
                         </td>
-
                     </tr>
 
-
                     <tr>
-
                         <td>VR003</td>
-
                         <td>Pimientos Tricolores</td>
-
+                        <td>Verduras Orgánicas</td>
                         <td>$1.500</td>
-
                         <td>120 kg</td>
-
                         <td>
-
-                            <a
-                                class="editar"
-                                href="editar-producto.html">
-
+                            <a class="editar"
+                               href="editar-producto.html">
                                 Editar
-
                             </a>
-
                         </td>
-
                     </tr>
 
-
                     <tr>
-
                         <td>PO001</td>
-
                         <td>Miel</td>
-
+                        <td>Productos Orgánicos</td>
                         <td>$5.000</td>
-
                         <td>50 frascos</td>
-
                         <td>
-
-                            <a
-                                class="editar"
-                                href="editar-producto.html">
-
+                            <a class="editar"
+                               href="editar-producto.html">
                                 Editar
-
                             </a>
-
                         </td>
-
                     </tr>
-
-
-                    <tr>
-
-                        <td>PO003</td>
-
-                        <td>Quinua Orgánica</td>
-
-                        <td>Por definir</td>
-
-                        <td>Disponible</td>
-
-                        <td>
-
-                            <a
-                                class="editar"
-                                href="editar-producto.html">
-
-                                Editar
-
-                            </a>
-
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>PL001</td>
-
-                        <td>Leche Entera</td>
-
-                        <td>Por definir</td>
-
-                        <td>Disponible</td>
-
-                        <td>
-
-                            <a
-                                class="editar"
-                                href="editar-producto.html">
-
-                                Editar
-
-                            </a>
-
-                        </td>
-
-                    </tr>
-
 
                 </tbody>
 
@@ -341,6 +209,10 @@
 
 </div>
 
-</body>
+<script src="js/notificaciones.js"></script>
+<script src="js/productos.js"></script>
+<script src="js/sesion.js"></script>
+<script src="js/carrito.js"></script>
 
+</body>
 </html>

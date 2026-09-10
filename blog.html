@@ -10,107 +10,153 @@
 
     <title>HuertoHogar | Blog</title>
 
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet"
+          href="css/estilos.css">
 
 </head>
 
 <body>
 
-
 <header>
 
     <div class="logo">
+
         <h1>HuertoHogar</h1>
+
     </div>
 
     <nav>
 
         <ul>
 
-            <li><a href="index.html">Inicio</a></li>
+            <li>
+                <a href="index.html">
+                    Inicio
+                </a>
+            </li>
 
-            <li><a href="productos.html">Productos</a></li>
+            <li>
+                <a href="productos.html">
+                    Productos
+                </a>
+            </li>
 
-            <li><a href="nosotros.html">Nosotros</a></li>
+            <li>
+                <a href="nosotros.html">
+                    Nosotros
+                </a>
+            </li>
 
-            <li><a href="blog.html">Blog</a></li>
+            <li>
+                <a href="blog.html">
+                    Blog
+                </a>
+            </li>
 
-            <li><a href="contacto.html">Contacto</a></li>
+            <li>
+                <a href="contacto.html">
+                    Contacto
+                </a>
+            </li>
 
         </ul>
 
     </nav>
 
-</header>
+    <div class="usuario">
 
+        <a href="login.html">
+            Iniciar sesión
+        </a>
+
+        <a href="registro.html">
+            Registrarse
+        </a>
+
+        <a
+            href="carrito.html"
+            class="enlace-carrito">
+
+            Carrito
+            (<span id="contadorCarrito">0</span>)
+
+        </a>
+
+    </div>
+
+</header>
 
 <main>
 
-<section class="contenido">
+    <section class="contenido">
 
-    <h2>Noticias importantes</h2>
+        <h1>
+            Blog HuertoHogar
+        </h1>
 
-
-    <div class="productos">
-
-
-        <article class="producto">
+        <article class="tarjeta">
 
             <img
-                src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80"
-                alt="Comida saludable">
+                src="img/comersaludable.jpg"
+                alt="Alimentación saludable">
 
-            <h3>5 ideas para comer más saludable</h3>
+            <h2>
+                5 ideas para comer más saludable
+            </h2>
 
             <p>
-                Conoce algunos consejos simples
-                para mejorar tu alimentación diaria.
+                Descubre formas sencillas
+                de mejorar tu alimentación diaria.
             </p>
 
             <a
                 href="blog1.html"
                 class="boton">
+
                 Leer noticia
+
             </a>
 
         </article>
 
-
-        <article class="producto">
+        <article class="tarjeta">
 
             <img
-                src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=800&q=80"
-                alt="Agricultura local">
+                src="img/locales.jpg"
+                alt="Productos locales">
 
-            <h3>¿Por qué elegir productos locales?</h3>
+            <h2>
+                ¿Por qué elegir productos locales?
+            </h2>
 
             <p>
-                Descubre los beneficios de apoyar
-                a agricultores locales.
+                Conoce los beneficios
+                de comprar productos de agricultores locales.
             </p>
 
             <a
                 href="blog2.html"
                 class="boton">
+
                 Leer noticia
+
             </a>
 
         </article>
 
-
-    </div>
-
-</section>
+    </section>
 
 </main>
 
-
 <footer>
 
-    <p>2026 HuertoHogar Sebastian Monsalve-Lucas Parra</p>
+    <p>
+        2026 HuertoHogar - Sebastian Monsalve - Lucas Parra
+    </p>
 
 </footer>
 
+<script src="js/sesion.js"></script>
 <script src="js/carrito.js"></script>
 
 </body>
