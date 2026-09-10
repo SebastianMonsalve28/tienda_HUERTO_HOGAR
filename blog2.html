@@ -2,14 +2,19 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>HuertoHogar | Productos Locales</title>
+    <title>
+        HuertoHogar | Productos Locales
+    </title>
 
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet"
+          href="css/estilos.css">
+
 </head>
 
 <body>
@@ -17,19 +22,48 @@
 <header>
 
     <div class="logo">
+
         <h1>HuertoHogar</h1>
+
     </div>
 
     <nav>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="productos.html">Productos</a></li>
-            <li><a href="nosotros.html">Nosotros</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-    </nav>
 
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    Inicio
+                </a>
+            </li>
+
+            <li>
+                <a href="productos.html">
+                    Productos
+                </a>
+            </li>
+
+            <li>
+                <a href="nosotros.html">
+                    Nosotros
+                </a>
+            </li>
+
+            <li>
+                <a href="blog.html">
+                    Blog
+                </a>
+            </li>
+
+            <li>
+                <a href="contacto.html">
+                    Contacto
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
 
     <div class="usuario">
 
@@ -41,14 +75,18 @@
             Registrarse
         </a>
 
-        <a href="carrito.html">
-            🛒 Carrito
+        <a
+            href="carrito.html"
+            class="enlace-carrito">
+
+            Carrito
+            (<span id="contadorCarrito">0</span>)
+
         </a>
 
     </div>
 
 </header>
-
 
 <main>
 
@@ -56,60 +94,49 @@
 
         <article class="tarjeta">
 
-            <h2>
+            <h1>
                 ¿Por qué elegir productos locales?
-            </h2>
-
+            </h1>
 
             <img
-                src="img/agricultores.jpg"
+                src="img/locales.jpg"
                 alt="Productos locales">
 
-
             <p>
-                Comprar productos locales permite apoyar
-                directamente a agricultores y productores
-                de nuestra zona.
+                Comprar productos locales permite
+                obtener alimentos más frescos
+                y apoyar a los agricultores de nuestra región.
             </p>
 
-
             <p>
-                Además, estos productos pueden llegar
-                más frescos al consumidor debido a que
-                recorren una menor distancia desde el campo
-                hasta nuestro hogar.
+                Al reducir las distancias de transporte,
+                los productos pueden llegar más rápido
+                desde el campo hasta los hogares.
             </p>
 
-
             <p>
-                Elegir productos locales también ayuda
-                a fortalecer la economía de las comunidades
-                y permite crear una relación más cercana
-                entre los productores y los consumidores.
+                También contribuye al desarrollo
+                de pequeños productores
+                y negocios locales.
             </p>
 
-
             <p>
-                Otra ventaja es que muchas veces los productos
-                locales utilizan prácticas de producción
-                más sostenibles y responsables con el
-                medio ambiente.
+                En HuertoHogar buscamos crear
+                una conexión más cercana
+                entre consumidores y agricultores.
             </p>
 
-
             <p>
-                HuertoHogar busca conectar a las familias
-                chilenas con productos frescos provenientes
-                directamente del campo y apoyar a los
-                agricultores locales.
+                Elegir productos locales también puede
+                contribuir a una alimentación
+                más sostenible y responsable.
             </p>
-
 
             <a
                 href="blog.html"
                 class="boton">
 
-                Volver al blog
+                Volver al Blog
 
             </a>
 
@@ -119,27 +146,15 @@
 
 </main>
 
-
 <footer>
 
     <p>
-        <strong>HuertoHogar</strong>
-    </p>
-
-    <p>
-        Productos frescos del campo a tu hogar.
-    </p>
-
-    <p>
-        contacto@huertohogar.cl
-    </p>
-
-    <p>
-        2026 HuertoHogar Sebastian Monsalve-Lucas Parra
+        2026 HuertoHogar - Sebastian Monsalve - Lucas Parra
     </p>
 
 </footer>
 
+<script src="js/sesion.js"></script>
 <script src="js/carrito.js"></script>
 
 </body>

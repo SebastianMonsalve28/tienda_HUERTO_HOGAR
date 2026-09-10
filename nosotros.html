@@ -10,111 +10,162 @@
 
     <title>HuertoHogar | Nosotros</title>
 
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet"
+          href="css/estilos.css">
 
 </head>
 
 <body>
 
-
 <header>
 
     <div class="logo">
+
         <h1>HuertoHogar</h1>
+
     </div>
 
     <nav>
 
         <ul>
 
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="productos.html">Productos</a></li>
-            <li><a href="nosotros.html">Nosotros</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
+            <li>
+                <a href="index.html">
+                    Inicio
+                </a>
+            </li>
+
+            <li>
+                <a href="productos.html">
+                    Productos
+                </a>
+            </li>
+
+            <li>
+                <a href="nosotros.html">
+                    Nosotros
+                </a>
+            </li>
+
+            <li>
+                <a href="blog.html">
+                    Blog
+                </a>
+            </li>
+
+            <li>
+                <a href="contacto.html">
+                    Contacto
+                </a>
+            </li>
 
         </ul>
 
     </nav>
 
-</header>
+    <div class="usuario">
 
+        <a href="login.html">
+            Iniciar sesión
+        </a>
+
+        <a href="registro.html">
+            Registrarse
+        </a>
+
+        <a
+            href="carrito.html"
+            class="enlace-carrito">
+
+            Carrito
+            (<span id="contadorCarrito">0</span>)
+
+        </a>
+
+    </div>
+
+</header>
 
 <main>
 
-<section class="contenido">
+    <section class="contenido">
 
-    <h2>Sobre HuertoHogar</h2>
+        <article class="tarjeta">
 
+            <h1>
+                Sobre HuertoHogar
+            </h1>
 
-    <article class="tarjeta">
+            <p>
+                HuertoHogar es una tienda online
+                dedicada a llevar productos frescos
+                y naturales directamente del campo
+                a los hogares chilenos.
+            </p>
 
-        <h3>Nuestra misión</h3>
+            <img
+                src="img/huerto.avif"
+                alt="HuertoHogar">
 
-        <p>
-            Proporcionar productos frescos y de calidad
-            directamente desde el campo hasta la puerta
-            de nuestros clientes.
-        </p>
+        </article>
 
-        <p>
-            Buscamos apoyar a agricultores locales y
-            promover una alimentación saludable.
-        </p>
+        <article class="tarjeta">
 
-    </article>
+            <h2>
+                Nuestra misión
+            </h2>
 
+            <p>
+                Entregar productos frescos y de calidad,
+                apoyando a productores locales
+                y promoviendo una alimentación saludable.
+            </p>
 
-    <article class="tarjeta">
+        </article>
 
-        <h3>Nuestra visión</h3>
+        <article class="tarjeta">
 
-        <p>
-            Ser una tienda online líder en Chile
-            en la distribución de productos frescos
-            y naturales.
-        </p>
+            <h2>
+                Nuestra visión
+            </h2>
 
-    </article>
+            <p>
+                Ser una tienda online reconocida
+                por su calidad, servicio y compromiso
+                con la sostenibilidad.
+            </p>
 
+        </article>
 
-    <article class="tarjeta">
+        <article class="tarjeta">
 
-        <h3>¿Dónde estamos?</h3>
+            <h2>
+                Desarrolladores
+            </h2>
 
-        <p>
-            Santiago, Puerto Montt, Villarrica,
-            Nacimiento, Viña del Mar,
-            Valparaíso y Concepción.
-        </p>
+            <p>
+                Sebastian Monsalve
+            </p>
 
-    </article>
+            <p>
+                Lucas Parra
+            </p>
 
+        </article>
 
-    <article class="tarjeta">
-
-        <h3>Desarrolladores</h3>
-
-        <p>
-            Proyecto desarrollado para la asignatura
-            Desarrollo Fullstack II.
-        </p>
-
-    </article>
-
-</section>
+    </section>
 
 </main>
 
-
 <footer>
 
-    <p>2026 HuertoHogar Sebastian Monsalve-Lucas Parra</p>
-
-    <p>contacto@huertohogar.cl</p>
+    <p>
+        2026 HuertoHogar - Sebastian Monsalve - Lucas Parra
+    </p>
 
 </footer>
 
+<script src="js/sesion.js"></script>
 <script src="js/carrito.js"></script>
 
 </body>
