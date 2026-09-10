@@ -3,104 +3,200 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<title>Editar Producto</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet"
-href="../css/estilos.css">
+    <title>
+        Administrador | Editar Producto
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../css/estilos.css">
 
 </head>
 
-<body>
-
-<main class="formulario">
+<body class="admin-body">
 
 
-<h1>Editar Producto</h1>
+<header class="admin-header">
+
+    <h2>
+        Panel de Administración - HuertoHogar
+    </h2>
+
+    <a
+        href="../index.html"
+        class="boton">
+
+        Volver a la tienda
+
+    </a>
+
+</header>
 
 
-<form>
+<div class="admin-shell">
 
 
-<label>Código</label>
+<aside class="menu-admin">
+
+    <h2>HuertoHogar</h2>
+
+    <h3>Administrador</h3>
+
+    <a href="index.html">
+        Inicio
+    </a>
+
+    <a
+        href="productos.html"
+        class="activo">
+
+        Gestión de Productos
+
+    </a>
+
+    <a href="nuevo-producto.html">
+        Nuevo Producto
+    </a>
+
+    <a href="usuarios.html">
+        Gestión de Usuarios
+    </a>
+
+    <a href="nuevo-usuario.html">
+        Nuevo Usuario
+    </a>
+
+</aside>
+
+
+<main class="contenido-admin">
+
+
+<h1>
+    Editar Producto
+</h1>
+
+
+<section class="form-admin">
+
+
+<form action="productos.html">
+
+
+<label>
+    Código
+</label>
 
 <input
-type="text"
-value="FR001"
-required>
+    type="text"
+    value="FR001"
+    required>
 
 
-<label>Nombre</label>
+<label>
+    Nombre
+</label>
 
 <input
-type="text"
-value="Manzanas Fuji"
-required>
+    type="text"
+    value="Manzanas Fuji"
+    required>
 
 
-<label>Descripción</label>
+<label>
+    Descripción
+</label>
 
-<textarea>
-Manzanas frescas y dulces.
+<textarea rows="4">
+Manzanas Fuji crujientes y dulces cultivadas en el Valle del Maule.
 </textarea>
 
 
-<label>Precio</label>
+<label>
+    Precio
+</label>
 
 <input
-type="number"
-value="1200"
-required>
+    type="number"
+    value="1200"
+    min="0"
+    required>
 
 
-<label>Stock</label>
+<label>
+    Stock
+</label>
 
 <input
-type="number"
-value="150"
-required>
+    type="number"
+    value="150"
+    min="0"
+    required>
 
 
-<label>Categoría</label>
+<label>
+    Categoría
+</label>
 
 <select>
 
-<option>
-Frutas Frescas
-</option>
+    <option selected>
+        Frutas Frescas
+    </option>
 
-<option>
-Verduras Orgánicas
-</option>
+    <option>
+        Verduras Orgánicas
+    </option>
 
-<option>
-Productos Orgánicos
-</option>
+    <option>
+        Productos Orgánicos
+    </option>
+
+    <option>
+        Productos Lácteos
+    </option>
 
 </select>
 
 
-<button
-class="boton"
-type="submit">
+<div class="acciones-form-admin">
 
-Guardar cambios
+
+<button
+    class="boton"
+    type="submit">
+
+    Guardar cambios
 
 </button>
 
-<a
-class="boton secundario"
-href="productos.html">
 
-Volver
+<a
+    href="productos.html"
+    class="boton secundario">
+
+    Cancelar
 
 </a>
 
 
+</div>
+
+
 </form>
 
+
+</section>
+
+
 </main>
+
+</div>
 
 </body>
 
