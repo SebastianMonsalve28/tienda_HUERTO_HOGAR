@@ -10,31 +10,80 @@
 
     <title>HuertoHogar | Carrito</title>
 
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet"
+          href="css/estilos.css">
 
 </head>
 
 <body>
 
+
 <header>
 
-    <h1>HuertoHogar</h1>
+    <div class="logo">
+        <h1>HuertoHogar</h1>
+    </div>
+
 
     <nav>
 
         <ul>
 
-            <li><a href="index.html">Inicio</a></li>
+            <li>
+                <a href="index.html">
+                    Inicio
+                </a>
+            </li>
 
-            <li><a href="productos.html">Productos</a></li>
+            <li>
+                <a href="productos.html">
+                    Productos
+                </a>
+            </li>
 
-            <li><a href="nosotros.html">Nosotros</a></li>
+            <li>
+                <a href="nosotros.html">
+                    Nosotros
+                </a>
+            </li>
 
-            <li><a href="contacto.html">Contacto</a></li>
+            <li>
+                <a href="blog.html">
+                    Blog
+                </a>
+            </li>
+
+            <li>
+                <a href="contacto.html">
+                    Contacto
+                </a>
+            </li>
 
         </ul>
 
     </nav>
+
+
+    <div class="usuario">
+
+        <a href="login.html">
+            Iniciar sesión
+        </a>
+
+        <a href="registro.html">
+            Registrarse
+        </a>
+
+        <a
+            href="carrito.html"
+            class="enlace-carrito">
+
+            Carrito
+            (<span id="contadorCarrito">0</span>)
+
+        </a>
+
+    </div>
 
 </header>
 
@@ -43,40 +92,125 @@
 
 <section class="contenido">
 
-    <h2>Mi carrito de compras</h2>
+
+    <div class="carrito-titulo">
 
 
-    <div id="carritoContenido"></div>
+        <div>
+
+            <h1>
+                Mi carrito de compras
+            </h1>
+
+            <p>
+                Revisa tus productos,
+                modifica cantidades o elimina
+                lo que ya no necesites.
+            </p>
+
+        </div>
 
 
-    <div class="total">
-
-        <h3>
-            Total:
-            <span id="totalCarrito">
-                $0
-            </span>
-        </h3>
-
-
-        <button
-            id="vaciarCarrito"
+        <a
+            href="productos.html"
             class="boton secundario">
 
-            Vaciar carrito
+            Seguir comprando
 
-        </button>
+        </a>
 
-
-        <button
-            id="pagarCarrito"
-            class="boton">
-
-            Pagar
-
-        </button>
 
     </div>
+
+
+    <div class="carrito-layout">
+
+
+        <div
+            id="carritoContenido"
+            class="carrito-lista">
+
+        </div>
+
+
+        <aside class="resumen-carrito">
+
+
+            <h2>
+                Resumen
+            </h2>
+
+
+            <div class="linea-resumen">
+
+                <span>
+                    Productos
+                </span>
+
+                <span id="cantidadResumen">
+                    0
+                </span>
+
+            </div>
+
+
+            <div class="linea-resumen">
+
+                <span>
+                    Subtotal
+                </span>
+
+                <span id="subtotalCarrito">
+                    $0
+                </span>
+
+            </div>
+
+
+            <div class="linea-resumen total-resumen">
+
+                <span>
+                    Total
+                </span>
+
+                <span id="totalCarrito">
+                    $0
+                </span>
+
+            </div>
+
+
+            <div class="botones-carrito">
+
+
+                <button
+                    id="pagarCarrito"
+                    class="boton"
+                    type="button">
+
+                    Realizar compra
+
+                </button>
+
+
+                <button
+                    id="vaciarCarrito"
+                    class="boton secundario"
+                    type="button">
+
+                    Vaciar carrito
+
+                </button>
+
+
+            </div>
+
+
+        </aside>
+
+
+    </div>
+
 
 </section>
 
@@ -85,13 +219,14 @@
 
 <footer>
 
-    <p>2026 HuertoHogar Sebastian Monsalve-Lucas Parra</p>
+    <p>
+        2026 HuertoHogar - Sebastian Monsalve - Lucas Parra
+    </p>
 
 </footer>
 
-
+<script src="js/notificaciones.js"></script>
 <script src="js/productos.js"></script>
-
 <script src="js/carrito.js"></script>
 
 </body>

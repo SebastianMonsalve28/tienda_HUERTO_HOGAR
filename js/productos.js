@@ -3,6 +3,8 @@ const productos = [
     {
         codigo: "FR001",
         nombre: "Manzanas Fuji",
+        categoria: "frutas",
+        categoriaNombre: "Frutas Frescas",
         precio: 1200,
         stock: 150,
         descripcion: "Manzanas Fuji crujientes y dulces cultivadas en el Valle del Maule.",
@@ -12,6 +14,8 @@ const productos = [
     {
         codigo: "FR002",
         nombre: "Naranjas",
+        categoria: "frutas",
+        categoriaNombre: "Frutas Frescas",
         precio: 1000,
         stock: 200,
         descripcion: "Naranjas jugosas y ricas en vitamina C.",
@@ -21,6 +25,8 @@ const productos = [
     {
         codigo: "FR003",
         nombre: "Plátanos",
+        categoria: "frutas",
+        categoriaNombre: "Frutas Frescas",
         precio: 800,
         stock: 250,
         descripcion: "Plátanos maduros y dulces ideales para desayuno.",
@@ -30,6 +36,8 @@ const productos = [
     {
         codigo: "VR001",
         nombre: "Zanahorias",
+        categoria: "verduras",
+        categoriaNombre: "Verduras Orgánicas",
         precio: 900,
         stock: 100,
         descripcion: "Zanahorias cultivadas sin pesticidas.",
@@ -39,6 +47,8 @@ const productos = [
     {
         codigo: "VR002",
         nombre: "Espinacas Frescas",
+        categoria: "verduras",
+        categoriaNombre: "Verduras Orgánicas",
         precio: 700,
         stock: 80,
         descripcion: "Espinacas frescas ideales para ensaladas.",
@@ -48,6 +58,8 @@ const productos = [
     {
         codigo: "VR003",
         nombre: "Pimientos Tricolores",
+        categoria: "verduras",
+        categoriaNombre: "Verduras Orgánicas",
         precio: 1500,
         stock: 120,
         descripcion: "Pimientos rojos, amarillos y verdes.",
@@ -57,6 +69,8 @@ const productos = [
     {
         codigo: "PO001",
         nombre: "Miel",
+        categoria: "organicos",
+        categoriaNombre: "Productos Orgánicos",
         precio: 5000,
         stock: 50,
         descripcion: "Miel pura producida por apicultores locales.",
@@ -65,10 +79,21 @@ const productos = [
 
 ];
 
-function mostrarProductos() {
+
+function formatoPrecio(precio) {
+
+    return "$" +
+        precio.toLocaleString("es-CL");
+
+}
+
+
+function mostrarProductos(lista = productos) {
 
     const contenedor =
-        document.getElementById("listaProductos");
+        document.getElementById(
+            "listaProductos"
+        );
 
 
     if (!contenedor) {
@@ -77,47 +102,83 @@ function mostrarProductos() {
 
     }
 
-    productos.forEach(function(producto) {
+
+    contenedor.innerHTML = "";
+
+
+    lista.forEach(function(producto) {
+
 
         contenedor.innerHTML += `
 
             <article class="producto">
 
+
                 <img
                     src="${producto.imagen}"
                     alt="${producto.nombre}">
 
+
+                <p class="stock-producto">
+
+                    ${producto.categoriaNombre}
+
+                </p>
+
+
                 <h3>
+
                     ${producto.nombre}
+
                 </h3>
 
-                <p>
-                    Precio:
-                    $${producto.precio.toLocaleString("es-CL")}
+
+                <p class="descripcion-producto">
+
+                    ${producto.descripcion}
+
                 </p>
 
-                <p>
-                    Stock:
+
+                <p class="precio-producto">
+
+                    ${formatoPrecio(producto.precio)}
+
+                </p>
+
+
+                <p class="stock-producto">
+
+                    Stock disponible:
                     ${producto.stock}
+
                 </p>
 
 
-                <a
-                    class="boton secundario"
-                    href="detalle-producto.html?id=${producto.codigo}">
-
-                    Ver detalle
-
-                </a>
+                <div class="acciones-producto">
 
 
-                <button
-                    class="boton"
-                    onclick="agregarAlCarrito('${producto.codigo}')">
+                    <a
+                        class="boton secundario"
+                        href="detalle-producto.html?id=${producto.codigo}">
 
-                    Agregar
+                        Ver detalle
 
-                </button>
+                    </a>
+
+
+                    <button
+                        class="boton"
+                        type="button"
+                        onclick="agregarAlCarrito('${producto.codigo}')">
+
+                        Agregar
+
+                    </button>
+
+
+                </div>
+
 
             </article>
 
@@ -127,10 +188,14 @@ function mostrarProductos() {
 
 }
 
+
+
 function mostrarDetalle() {
 
     const contenedor =
-        document.getElementById("detalleProducto");
+        document.getElementById(
+            "detalleProducto"
+        );
 
 
     if (!contenedor) {
@@ -139,8 +204,11 @@ function mostrarDetalle() {
 
     }
 
+
     const parametros =
-        new URLSearchParams(window.location.search);
+        new URLSearchParams(
+            window.location.search
+        );
 
 
     let codigo =
@@ -152,6 +220,7 @@ function mostrarDetalle() {
         codigo = "FR001";
 
     }
+
 
     const producto =
         productos.find(function(p) {
@@ -170,9 +239,9 @@ function mostrarDetalle() {
 
     }
 
+
     contenedor.className =
         "detalle-producto";
-
 
     contenedor.innerHTML = `
 
@@ -181,48 +250,215 @@ function mostrarDetalle() {
             alt="${producto.nombre}">
 
 
-        <article>
+        <article class="detalle-info">
 
-            <h2>
+
+            <p>
+
+                ${producto.categoriaNombre}
+
+            </p>
+
+
+            <h1>
+
                 ${producto.nombre}
-            </h2>
+
+            </h1>
+
+
+            <p class="precio-detalle">
+
+                ${formatoPrecio(producto.precio)}
+
+            </p>
 
 
             <p>
+
                 ${producto.descripcion}
+
             </p>
 
 
             <p>
-                <strong>Código:</strong>
+
+                <strong>
+                    Código:
+                </strong>
+
                 ${producto.codigo}
+
             </p>
 
 
             <p>
-                <strong>Precio:</strong>
-                $${producto.precio.toLocaleString("es-CL")}
-            </p>
 
+                <strong>
+                    Stock:
+                </strong>
 
-            <p>
-                <strong>Stock:</strong>
                 ${producto.stock}
+
             </p>
+
+
+            <div class="selector-cantidad">
+
+
+                <label for="cantidadDetalle">
+
+                    Cantidad:
+
+                </label>
+
+
+                <input
+                    id="cantidadDetalle"
+                    type="number"
+                    min="1"
+                    value="1">
+
+
+            </div>
 
 
             <button
                 class="boton"
-                onclick="agregarAlCarrito('${producto.codigo}')">
+                type="button"
+                onclick="agregarDetalleAlCarrito('${producto.codigo}')">
 
                 Agregar al carrito
 
             </button>
+
 
         </article>
 
     `;
 
 }
-mostrarProductos();
-mostrarDetalle();
+
+function agregarDetalleAlCarrito(codigo) {
+
+    const entrada =
+        document.getElementById(
+            "cantidadDetalle"
+        );
+
+
+    let cantidad = 1;
+
+
+    if (entrada) {
+
+        cantidad =
+            parseInt(entrada.value);
+
+
+        if (
+            isNaN(cantidad) ||
+            cantidad < 1
+        ) {
+
+            cantidad = 1;
+
+        }
+
+    }
+
+
+    agregarAlCarrito(
+        codigo,
+        cantidad
+    );
+
+}
+
+function configurarFiltros() {
+
+    const botones =
+        document.querySelectorAll(
+            ".filtro-btn"
+        );
+
+
+    botones.forEach(
+        function(boton) {
+
+
+            boton.addEventListener(
+                "click",
+                function() {
+
+
+                    botones.forEach(
+                        function(otroBoton) {
+
+                            otroBoton.classList.remove(
+                                "activo"
+                            );
+
+                        }
+                    );
+
+
+                    boton.classList.add(
+                        "activo"
+                    );
+
+
+                    const categoria =
+                        boton.dataset.categoria;
+
+
+                    if (
+                        categoria === "todos"
+                    ) {
+
+                        mostrarProductos(
+                            productos
+                        );
+
+                    }
+
+                    else {
+
+                        const filtrados =
+                            productos.filter(
+                                function(producto) {
+
+                                    return producto.categoria === categoria;
+
+                                }
+                            );
+
+
+                        mostrarProductos(
+                            filtrados
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        mostrarProductos();
+
+        mostrarDetalle();
+
+        configurarFiltros();
+
+    }
+);

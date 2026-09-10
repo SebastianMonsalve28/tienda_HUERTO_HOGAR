@@ -2,20 +2,15 @@
 <html lang="es">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>HuertoHogar | Productos</title>
 
     <link rel="stylesheet" href="css/estilos.css">
-
 </head>
 
 <body>
-
 
 <header>
 
@@ -24,56 +19,117 @@
     </div>
 
     <nav>
-
         <ul>
-
             <li><a href="index.html">Inicio</a></li>
-
             <li><a href="productos.html">Productos</a></li>
-
             <li><a href="nosotros.html">Nosotros</a></li>
-
             <li><a href="blog.html">Blog</a></li>
-
             <li><a href="contacto.html">Contacto</a></li>
-
         </ul>
-
     </nav>
 
+    <div class="usuario">
 
-    <a href="carrito.html">
+        <a href="login.html">
+            Iniciar sesión
+        </a>
 
-        Carrito
-        (<span id="contadorCarrito">0</span>)
+        <a href="registro.html">
+            Registrarse
+        </a>
 
-    </a>
+        <a href="carrito.html" class="enlace-carrito">
+            Carrito (<span id="contadorCarrito">0</span>)
+        </a>
+
+    </div>
 
 </header>
 
+
 <main>
 
-<section class="contenido">
+    <section class="contenido">
 
-    <h2>Nuestros Productos</h2>
+        <h1>Nuestros Productos</h1>
 
-    <div
-        id="listaProductos"
-        class="productos">
-    </div>
+        <p>
+            Revisa nuestro catálogo de productos frescos
+            y filtra por categoría.
+        </p>
 
-</section>
+
+        <div class="catalogo-layout">
+
+
+            <aside class="filtros-productos">
+
+                <h3>Categorías</h3>
+
+
+                <button
+                    class="filtro-btn activo"
+                    data-categoria="todos">
+
+                    Todos
+
+                </button>
+
+
+                <button
+                    class="filtro-btn"
+                    data-categoria="frutas">
+
+                    Frutas Frescas
+
+                </button>
+
+
+                <button
+                    class="filtro-btn"
+                    data-categoria="verduras">
+
+                    Verduras Orgánicas
+
+                </button>
+
+
+                <button
+                    class="filtro-btn"
+                    data-categoria="organicos">
+
+                    Productos Orgánicos
+
+                </button>
+
+            </aside>
+
+
+            <div
+                id="listaProductos"
+                class="productos-grid">
+
+            </div>
+
+
+        </div>
+
+    </section>
 
 </main>
 
+
 <footer>
 
-    <p>2026 HuertoHogar Sebastian Monsalve-Lucas Parra</p>
+    <p>
+        2026 HuertoHogar - Sebastian Monsalve - Lucas Parra
+    </p>
 
 </footer>
 
-<script src="js/productos.js"></script>
 
+<script src="js/notificaciones.js"></script>
+<script src="js/productos.js"></script>
 <script src="js/carrito.js"></script>
 
 </body>
