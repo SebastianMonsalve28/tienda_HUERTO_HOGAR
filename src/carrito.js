@@ -1,3 +1,4 @@
+export const offerPrice = product => Number(product.descuento) > 0 ? Math.round(Number(product.precio) * (1 - Number(product.descuento)/100)) : Number(product.precio);
 export const money = (value) =>
   new Intl.NumberFormat("es-CL", {
     style: "currency",

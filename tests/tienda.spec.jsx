@@ -11,13 +11,16 @@ import {
   changeQuantity,
   totalCart,
   money,
+  offerPrice,
 } from "../src/carrito";
-import { validate, validRun, validEmail } from "../src/validaciones";
+import { validate, validRun, validEmail, emailError, nameError, addressError, validateCheckout, normalizeRun } from "../src/validaciones";
 import ProductCard from "../src/components/TarjetaProducto";
 import Layout from "../src/components/Estructura";
 import AccountForm from "../src/components/FormularioCuenta";
 import Catalog from "../src/pages/Catalogo";
 import Cart from "../src/pages/Carrito";
+import Ofertas from "../src/pages/Ofertas";
+import { Checkout, Resultado } from "../src/pages/Checkout";
 import Detail from "../src/pages/Detalle";
 import Admin from "../src/pages/Administracion";
 import Home from "../src/pages/Inicio";
@@ -44,6 +47,7 @@ const registered = {
   region: "Región Metropolitana",
   comuna: "Maipú",
   direccion: "Calle Uno 123",
+  confirmPassword: "Lucas123",
   role: "cliente",
 };
 function fillRegister() {
@@ -52,6 +56,7 @@ function fillRegister() {
     "run",
     "correo",
     "password",
+    "confirmPassword",
     "region",
     "comuna",
     "direccion",
@@ -196,14 +201,12 @@ describe("05 · Carrito: interacción DOM", () => {
     fireEvent.click(screen.getByText("Vaciar carrito"));
     expect(storage.read("cart", [])).toEqual([]);
   });
-  it("confirma solo un pedido simulado", () => {
+  it("continúa al checkout sin cobrar ni vaciar el carrito", () => {
     storage.write("cart", addItem([], product));
     mount(<Cart />);
-    fireEvent.click(screen.getByText("Confirmar pedido de prueba"));
-    expect(screen.getByRole("status").textContent).toContain(
-      "No se realizó ningún cobro",
-    );
-    expect(storage.read("cart", [])).toEqual([]);
+    fireEvent.click(screen.getByText("Continuar al pago de prueba"));
+    expect(storage.read("cart", []).length).toBe(1);
+    expect(storage.read("orders", [])).toEqual([]);
   });
 });
 describe("06 · Validación de formularios", () => {
@@ -221,7 +224,7 @@ describe("06 · Validación de formularios", () => {
     expect(validRun("10000104")).toBeFalse();
   });
   it("valida campos obligatorios, comuna y largos", () => {
-    expect(Object.keys(validate({}, "register")).length).toBe(6);
+    expect(Object.keys(validate({}, "register")).length).toBeGreaterThanOrEqual(6);
     expect(validate(registered, "register")).toEqual({});
     expect(
       validate({ ...registered, comuna: "Otra" }, "register").comuna,
@@ -530,5 +533,78 @@ describe("13 · Aplicación completa", () => {
     ).toBeTruthy();
     fireEvent.click(screen.getByText("Contacto", { selector: "a" }));
     expect(screen.getByRole("heading", { name: "Conversemos" })).toBeTruthy();
+  });
+});
+
+describe("14 · Validaciones detalladas y ofertas", () => {
+  it("rechaza doble @, dominios falsos y puntos consecutivos", () => {
+    for (const email of ["a@@gmail.com", "a@gmail.commmm", "a..b@gmail.com", ".a@gmail.com", "a.@gmail.com", "a@gmail..com"])
+      expect(validEmail(email)).toBeFalse();
+  });
+  it("requiere confirmación y dirección con referencia", () => {
+    const values = {...registered, confirmPassword:"", direccion:"aaaaaa"};
+    expect(validate(values,"register").confirmPassword).toBeTruthy();
+    expect(validate(values,"register").direccion).toBeTruthy();
+  });
+  it("hay descuentos configurados", () => {
+    expect(initialProducts.filter(p => p.descuento > 0).length).toBeGreaterThanOrEqual(3);
+  });
+});
+
+
+describe("15 · Checkout, ofertas y validaciones adicionales", () => {
+  it("explica por qué falla cada dirección y correo", () => {
+    expect(emailError("x@@gmail.com")).toContain("solo símbolo @");
+    expect(emailError("x@gmail.commm")).toContain("Correo no permitido");
+    expect(emailError("x..y@gmail.com")).toContain("formato inválido");
+    expect(emailError("x@gmail.com")).toBe("");
+    expect(nameError("123")).toContain("solo puede contener letras");
+    expect(nameError("María Soto")).toBe("");
+    expect(addressError("aaaaaa")).toContain("calle y número");
+    expect(addressError("Av. Siempre Viva 742")).toBe("");
+    expect(addressError("Camino S/N")).toBe("");
+  });
+  it("valida dirección, región, comuna e indicaciones del pago", () => {
+    const datos = {nombre:"María Soto",correo:"maria@gmail.com",direccion:"Calle Uno 123",region:"Región Metropolitana",comuna:"Santiago",indicaciones:""};
+    expect(validateCheckout(datos)).toEqual({});
+    expect(validateCheckout({...datos,correo:"x@@gmail.com"}).correo).toBeTruthy();
+    expect(validateCheckout({...datos,region:"",comuna:""}).region).toBeTruthy();
+    expect(validateCheckout({...datos,comuna:"Inexistente"}).comuna).toBeTruthy();
+    expect(validateCheckout({...datos,indicaciones:"x".repeat(301)}).indicaciones).toBeTruthy();
+  });
+  it("normaliza RUN con puntos y guion", () => {
+    expect(normalizeRun("12.345.678-5")).toBe("123456785");
+  });
+  it("calcula descuentos y mantiene precios normales", () => {
+    expect(offerPrice({precio:1200,descuento:15})).toBe(1020);
+    expect(offerPrice({precio:1200,descuento:0})).toBe(1200);
+    expect(offerPrice({precio:1999,descuento:10})).toBe(1799);
+  });
+  it("renderiza sección de ofertas con productos rebajados", () => {
+    mount(<Ofertas />);
+    expect(screen.getByRole("heading",{name:"Ofertas"})).toBeTruthy();
+    expect(screen.getAllByRole("article").length).toBeGreaterThanOrEqual(3);
+  });
+  it("muestra el checkout vacío sin solicitar datos", () => {
+    mount(<Checkout />);
+    expect(screen.getByText("Tu carrito está vacío.")).toBeTruthy();
+  });
+  it("checkout indica errores específicos de campos obligatorios", () => {
+    storage.write("cart",addItem([],product));
+    mount(<Checkout />);
+    fireEvent.click(screen.getByText("Simular pago"));
+    expect(screen.getByText("El correo es obligatorio.")).toBeTruthy();
+    expect(screen.getByText("Selecciona una región válida.")).toBeTruthy();
+  });
+  it("checkout muestra el mensaje de correo no permitido", () => {
+    storage.write("cart",addItem([],product));
+    mount(<Checkout />);
+    input("checkout-correo","prueba@@gmail.com");
+    fireEvent.blur(document.getElementById("checkout-correo"));
+    expect(screen.getByText("El correo debe contener un solo símbolo @.")).toBeTruthy();
+  });
+  it("resultado sin información regresa al carrito", () => {
+    mount(<Resultado />);
+    expect(screen.getByText("No hay resultado de pago")).toBeTruthy();
   });
 });

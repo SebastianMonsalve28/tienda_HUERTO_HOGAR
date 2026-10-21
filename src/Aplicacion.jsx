@@ -6,6 +6,8 @@ import Home from "./pages/Inicio";
 import Catalog from "./pages/Catalogo";
 import Detail from "./pages/Detalle";
 import Cart from "./pages/Carrito";
+import { Checkout, Resultado } from "./pages/Checkout";
+import Ofertas from "./pages/Ofertas";
 import AccountForm from "./components/FormularioCuenta";
 import Admin from "./pages/Administracion";
 import { About, Blog, NotFound } from "./pages/Contenido";
@@ -19,6 +21,9 @@ export default function App() {
             <Route path="productos" element={<Catalog />} />
             <Route path="productos/:code" element={<Detail />} />
             <Route path="carrito" element={<Cart />} />
+            <Route path="checkout" element={<Checkout />} />
+            <Route path="resultado" element={<Resultado />} />
+            <Route path="ofertas" element={<Ofertas />} />
             <Route path="nosotros" element={<About />} />
             <Route path="blog" element={<Blog />} />
             <Route path="blog/:id" element={<Blog />} />

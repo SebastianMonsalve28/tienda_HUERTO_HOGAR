@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useStore } from "../Tienda";
 import { money, totalCart } from "../carrito";
 export default function Cart() {
   const { items, setItems, update } = useStore();
+  const navigate = useNavigate();
   const [done, setDone] = useState(false);
   return (
     <section className="container section">
@@ -76,12 +77,9 @@ export default function Cart() {
               </p>
               <button
                 className="btn btn-success w-100"
-                onClick={() => {
-                  setDone(true);
-                  setItems([]);
-                }}
+                onClick={() => navigate("/checkout")}
               >
-                Confirmar pedido de prueba
+                Continuar al pago de prueba
               </button>
             </div>
           </aside>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { money } from "../carrito";
+import { money, offerPrice } from "../carrito";
 export default function ProductCard({ product, onAdd }) {
   return (
     <article className="card product-card h-100">
@@ -23,7 +23,7 @@ export default function ProductCard({ product, onAdd }) {
           {product.descripcion}
         </p>
         <div className="d-flex align-items-center justify-content-between gap-2">
-          <strong className="price">{money(product.precio)}</strong>
+          <span><strong className="price">{money(offerPrice(product))}</strong>{Number(product.descuento)>0 && <><small className="d-block text-muted text-decoration-line-through">{money(product.precio)}</small><span className="badge bg-success">-{product.descuento}%</span></>}</span>
           <button
             disabled={product.stock === 0}
             className="btn btn-success"

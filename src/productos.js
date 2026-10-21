@@ -1,6 +1,7 @@
 export const initialProducts = [
   {
     codigo: "FR001",
+    descuento: 15,
     nombre: "Manzanas Fuji",
     categoria: "frutas",
     categoriaNombre: "Frutas Frescas",
@@ -35,6 +36,7 @@ export const initialProducts = [
 
   {
     codigo: "VR001",
+    descuento: 10,
     nombre: "Zanahorias",
     categoria: "verduras",
     categoriaNombre: "Verduras Orgánicas",
@@ -68,6 +70,7 @@ export const initialProducts = [
 
   {
     codigo: "PO001",
+    descuento: 20,
     nombre: "Miel",
     categoria: "organicos",
     categoriaNombre: "Productos Orgánicos",

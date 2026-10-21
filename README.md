@@ -148,3 +148,10 @@ HuertoHogar es un prototipo académico frontend. La información se conserva en 
 - `docs/`: ERS e informe de cobertura en PDF.
 
 La entrega contiene el código fuente y la configuración necesaria de desarrollo y pruebas. Las dependencias instaladas, la compilación y los reportes regenerables no forman parte del ZIP.
+
+
+## Mejoras adicionales de la EP2
+
+La aplicación React ahora incorpora una vista de ofertas, checkout de demostración, resultados de compra exitosa y fallida, descuentos configurables desde administración, listado de pedidos y validación de correo y RUN duplicado. 
+
+**Importante:** los pagos, envíos y usuarios son simulados y locales al navegador.

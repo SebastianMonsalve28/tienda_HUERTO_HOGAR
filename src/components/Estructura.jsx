@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, Link, Outlet } from "react-router-dom";
 import { useStore } from "../Tienda";
 export default function Layout() {
   const { items, user, setUser, notice, setNotice } = useStore();
   const [open, setOpen] = useState(false);
+  useEffect(() => {
+    if (!notice) return;
+    const timeout = setTimeout(() => setNotice(""), 3500);
+    return () => clearTimeout(timeout);
+  }, [notice, setNotice]);
   return (
     <>
       <a className="visually-hidden-focusable" href="#contenido">
@@ -35,6 +40,7 @@ export default function Layout() {
               {[
                 ["/", "Inicio"],
                 ["/productos", "Productos"],
+                ["/ofertas", "Ofertas"],
                 ["/nosotros", "Nosotros"],
                 ["/blog", "Blog"],
                 ["/contacto", "Contacto"],
@@ -71,17 +77,10 @@ export default function Layout() {
         </nav>
       </header>
       {notice && (
-        <div className="container mt-3">
-          <div
-            role="status"
-            className="alert alert-success d-flex justify-content-between"
-          >
-            {notice}
-            <button
-              className="btn-close"
-              aria-label="Cerrar aviso"
-              onClick={() => setNotice("")}
-            />
+        <div className="position-fixed top-0 end-0 p-3" style={{ zIndex: 1090, width: "min(420px, 100vw)" }}>
+          <div role="status" aria-live="polite" className="alert alert-success shadow-lg d-flex gap-3 align-items-center justify-content-between mb-0">
+            <span><strong>✓</strong> {notice}</span>
+            <button type="button" className="btn-close flex-shrink-0" aria-label="Cerrar aviso" onClick={() => setNotice("")} />
           </div>
         </div>
       )}
