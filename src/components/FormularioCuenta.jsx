@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { validate, locations } from "../validaciones";
+import { validate, locations, normalizeRun } from "../validaciones";
 import { storage } from "../almacenamiento";
 import { useStore } from "../Tienda";
 export default function AccountForm({ mode }) {
@@ -10,6 +10,7 @@ export default function AccountForm({ mode }) {
       nombre: "",
       correo: "",
       password: "",
+      confirmPassword: "",
       run: "",
       region: "",
       comuna: "",
@@ -31,6 +32,7 @@ export default function AccountForm({ mode }) {
       [name]: value,
       ...(name === "region" ? { comuna: "" } : {}),
     }));
+    if (errors[name]) setErrors(previous => ({...previous, [name]: undefined}));
     setSuccess("");
   }
   function submit(e) {
@@ -72,7 +74,12 @@ export default function AccountForm({ mode }) {
         setErrors({ correo: "Ya existe una cuenta con ese correo." });
         return;
       }
-      const user = { ...values, correo: email, role: "cliente" };
+      if (users.some((u) => normalizeRun(u.run) === normalizeRun(values.run))) {
+        setErrors({ run: "Ya existe una cuenta registrada con este RUN." });
+        return;
+      }
+      const {confirmPassword, ...safeValues} = values;
+      const user = { ...safeValues, correo: email, run: normalizeRun(values.run), role: "cliente" };
       if (!storage.write("users", [...users, user])) {
         setErrors({ general: "No se pudo guardar la cuenta." });
         return;
@@ -135,6 +142,7 @@ export default function AccountForm({ mode }) {
           {field("correo", "Correo electrónico", "email")}
           {mode !== "contact" &&
             field("password", "Contraseña", "password", 10)}
+          {mode === "register" && field("confirmPassword", "Confirmar contraseña", "password", 10)}
           {mode === "register" && (
             <>
               <div className="mb-3">
@@ -147,12 +155,14 @@ export default function AccountForm({ mode }) {
                   name="region"
                   value={values.region}
                   onChange={change}
+                  aria-invalid={!!errors.region}
                 >
                   <option value="">Selecciona una región</option>
                   {Object.keys(locations).map((x) => (
                     <option key={x}>{x}</option>
                   ))}
                 </select>
+                {errors.region && <p className="text-danger small" role="alert">{errors.region}</p>}
               </div>
               <div className="mb-3">
                 <label htmlFor="comuna" className="form-label">

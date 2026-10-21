@@ -11,6 +11,7 @@ const blank = {
   stock: 0,
   descripcion: "",
   imagen: "img/manzanas.jpg",
+  descuento: 0,
 };
 export default function Admin() {
   const { user, products, setProducts, items, setItems } = useStore(),
@@ -37,6 +38,7 @@ export default function Admin() {
       !Number.isFinite(Number(draft.precio)) ||
       Number(draft.precio) <= 0 ||
       !Number.isInteger(Number(draft.stock)) ||
+      !Number.isInteger(Number(draft.descuento || 0)) || Number(draft.descuento || 0) < 0 || Number(draft.descuento || 0) > 90 ||
       Number(draft.stock) < 0
     ) {
       setError(
@@ -52,6 +54,7 @@ export default function Admin() {
       ...draft,
       precio: Number(draft.precio),
       stock: Number(draft.stock),
+      descuento: Number(draft.descuento || 0),
       categoriaNombre: {
         frutas: "Frutas Frescas",
         verduras: "Verduras Orgánicas",
@@ -98,6 +101,7 @@ export default function Admin() {
         >
           Productos
         </button>
+        <button className="btn btn-outline-success" onClick={() => setTab("pedidos")}>Pedidos</button>
         <button
           className="btn btn-outline-success"
           onClick={() => setTab("usuarios")}
@@ -110,7 +114,7 @@ export default function Admin() {
           {error}
         </p>
       )}
-      {tab === "productos" ? (
+      {tab === "pedidos" ? <div className="table-responsive"><h2>Historial de pedidos simulados</h2><table className="table"><thead><tr><th>Pedido</th><th>Cliente</th><th>Fecha</th><th>Total</th><th>Estado</th></tr></thead><tbody>{(storage.read("orders", []) || []).map(o => <tr key={o.id}><td>{o.id}</td><td>{o.cliente?.correo}</td><td>{new Date(o.fecha).toLocaleString('es-CL')}</td><td>{money(o.total)}</td><td>{o.estado}</td></tr>)}</tbody></table></div> : tab === "productos" ? (
         <div className="row g-4">
           <div className="col-lg-8">
             <div className="table-responsive">
@@ -166,6 +170,7 @@ export default function Admin() {
                 ["nombre", "Nombre"],
                 ["precio", "Precio"],
                 ["stock", "Stock"],
+                ["descuento", "Descuento % (0 a 90)"],
                 ["descripcion", "Descripción"],
               ].map(([key, label]) => (
                 <div className="mb-3" key={key}>

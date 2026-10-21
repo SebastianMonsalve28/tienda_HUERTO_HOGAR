@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { storage } from "./almacenamiento";
 import { initialProducts } from "./productos";
-import { addItem, changeQuantity } from "./carrito";
+import { addItem, changeQuantity, offerPrice } from "./carrito";
 const Store = createContext(null);
 export const useStore = () => useContext(Store);
 export function StoreProvider({ children }) {
@@ -9,7 +9,7 @@ export function StoreProvider({ children }) {
     const p = storage.read("products", initialProducts);
     return Array.isArray(p) &&
       p.every((x) => x.codigo && x.precio >= 0 && x.stock >= 0)
-      ? p
+      ? p.map(x => ({...x, descuento: x.descuento ?? initialProducts.find(i => i.codigo === x.codigo)?.descuento ?? 0}))
       : initialProducts;
   });
   const [items, setItems] = useState(() => {
@@ -41,7 +41,7 @@ export function StoreProvider({ children }) {
   }, [user]);
   function add(product, quantity = 1) {
     try {
-      setItems(addItem(items, product, quantity));
+      setItems(addItem(items, {...product, precio: offerPrice(product)}, quantity));
       setNotice(`${product.nombre} agregado al carrito.`);
     } catch (e) {
       setNotice(e.message);
