@@ -1,0 +1,238 @@
+:root {
+  --green: #216044;
+  --cream: #f6f5ee;
+  --ink: #233d30;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: #fff;
+}
+a {
+  color: var(--green);
+  text-underline-offset: 4px;
+}
+h1,
+h2,
+.brand {
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: -0.035em;
+}
+h1 {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+}
+h2 {
+  font-size: 2.2rem;
+}
+.btn {
+  border-radius: 8px;
+  padding: 0.65rem 1.1rem;
+  font-weight: 600;
+}
+.btn-success {
+  --bs-btn-bg: var(--green);
+  --bs-btn-border-color: var(--green);
+  --bs-btn-hover-bg: #174932;
+  --bs-btn-hover-border-color: #174932;
+  --bs-btn-disabled-bg: #6f8779;
+  --bs-btn-disabled-border-color: #6f8779;
+}
+.btn-outline-success {
+  --bs-btn-color: var(--green);
+  --bs-btn-border-color: var(--green);
+  --bs-btn-hover-bg: var(--green);
+  --bs-btn-hover-border-color: var(--green);
+}
+.topline {
+  background: var(--green);
+  color: #fff;
+  text-align: center;
+  padding: 8px;
+  font-size: 0.75rem;
+  letter-spacing: 0.09em;
+}
+.brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--green);
+}
+.brand span {
+  font-weight: normal;
+}
+.brand small {
+  display: block;
+  font:
+    9px Arial,
+    sans-serif;
+  letter-spacing: 0.2em;
+  margin-top: 4px;
+}
+.navbar .active {
+  color: var(--green);
+  font-weight: bold;
+}
+.hero {
+  background: var(--cream);
+  padding: 72px 0;
+}
+.hero h1 {
+  font-size: clamp(2.8rem, 5.1vw, 4.7rem);
+  line-height: 1.06;
+}
+.hero h1 em {
+  color: var(--green);
+  font-weight: 400;
+}
+.hero .lead {
+  font-size: 1.12rem;
+  max-width: 430px;
+  line-height: 1.7;
+}
+.eyebrow {
+  font-size: 0.7rem;
+  color: var(--green);
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  margin-bottom: 0.8rem;
+}
+.hero-image {
+  width: 100%;
+  height: 425px;
+  object-fit: cover;
+  border-radius: 48% 48% 14px 14px;
+}
+.hero-tags {
+  font-size: 0.78rem;
+  color: #526653;
+}
+.hero-tags span {
+  margin: 0 10px;
+}
+.section {
+  padding-top: 60px;
+  padding-bottom: 70px;
+  min-height: 50vh;
+}
+.product-card {
+  border: 1px solid #e2e8dd;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+.product-card:hover {
+  transform: translateY(-3px);
+}
+.product-card .card-img-top {
+  height: 215px;
+  object-fit: cover;
+}
+.product-card .card-body {
+  padding: 24px;
+}
+.product-title {
+  text-decoration: none;
+  color: var(--ink);
+}
+.price {
+  color: var(--green);
+  font-size: 1.2rem;
+}
+.story-strip {
+  padding: 60px 0;
+  background: var(--cream);
+}
+.footer {
+  background: #173c2c;
+  color: #e9f0e9;
+  padding: 38px 0;
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+.detail-image {
+  width: 100%;
+  max-height: 450px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+.form-shell {
+  max-width: 520px;
+  margin: auto;
+  padding: 35px;
+  background: var(--cream);
+  border-radius: 20px;
+}
+.form-control,
+.form-select {
+  min-height: 44px;
+}
+.quantity {
+  max-width: 110px;
+}
+.cart-line {
+  padding: 20px 0;
+  border-bottom: 1px solid #dce5da;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.cart-line img {
+  width: 85px;
+  height: 85px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.summary {
+  background: var(--cream);
+  padding: 25px;
+  border-radius: 16px;
+}
+.empty-state {
+  text-align: center;
+  background: var(--cream);
+  border-radius: 20px;
+  padding: 65px 20px;
+  margin-top: 30px;
+}
+.blog-image {
+  height: 280px;
+  object-fit: cover;
+}
+.reading {
+  max-width: 800px;
+  line-height: 1.8;
+}
+.btn:focus-visible,
+a:focus-visible {
+  outline: 3px solid #b78a24;
+  outline-offset: 3px;
+}
+@media (max-width: 575px) {
+  .hero {
+    padding: 35px 0;
+  }
+  .hero-image {
+    height: 260px;
+  }
+  .section {
+    padding: 35px 16px;
+  }
+  .form-shell {
+    padding: 24px 18px;
+  }
+  .cart-line {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .cart-line > div:last-child {
+    width: 100%;
+  }
+  .footer {
+    padding: 28px 16px;
+  }
+}
+@media (max-width: 575px) {
+  .hero .row,
+  .section .row {
+    --bs-gutter-x: 1.5rem;
+  }
+}
