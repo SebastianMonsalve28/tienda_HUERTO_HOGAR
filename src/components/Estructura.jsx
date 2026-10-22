@@ -96,7 +96,7 @@ export default function Layout() {
           <p className="mb-0">
             Sebastian Monsalve · Lucas Parra
             <br />
-            Desarrollo Fullstack II · 2026
+            
           </p>
         </div>
       </footer>
