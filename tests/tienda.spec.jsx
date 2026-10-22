@@ -396,6 +396,9 @@ describe("10 · Navegación, estado global y persistencia", () => {
   });
 });
 describe("11 · Administración y protección de rutas", () => {
+    beforeEach(() => {
+    spyOn(window, "confirm").and.returnValue(true);
+  });
   function admin() {
     storage.write("session", {
       nombre: "Admin",
@@ -422,7 +425,7 @@ describe("11 · Administración y protección de rutas", () => {
   it("valida, crea, edita y elimina productos", () => {
     admin();
     submit();
-    expect(screen.getByRole("alert").textContent).toContain("Revisa código");
+    expect(screen.getByRole("alert").textContent).toContain("Completa código");
     for (const [key, value] of Object.entries({
       codigo: "FR099",
       nombre: "Pera",
@@ -453,7 +456,7 @@ describe("11 · Administración y protección de rutas", () => {
     }))
       input("admin-" + key, value);
     submit();
-    expect(screen.getByText("El código ya existe.")).toBeTruthy();
+    expect(screen.getByText("Ya existe un producto con ese código.")).toBeTruthy();
     fireEvent.click(screen.getByText("Editar FR001"));
     fireEvent.click(screen.getByText("Cancelar"));
     expect(document.getElementById("admin-codigo").disabled).toBeFalse();
@@ -606,5 +609,120 @@ describe("15 · Checkout, ofertas y validaciones adicionales", () => {
   it("resultado sin información regresa al carrito", () => {
     mount(<Resultado />);
     expect(screen.getByText("No hay resultado de pago")).toBeTruthy();
+  });
+});
+describe("16 · Compra y pedidos", () => {
+  function prepararCompra() {
+    storage.write("cart", addItem([], product, 2));
+
+    mount(
+      <Routes>
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/resultado" element={<Resultado />} />
+      </Routes>,
+      "/checkout",
+    );
+
+    for (const [campo, valor] of Object.entries({
+      nombre: "Lucas Parra",
+      correo: "lucas@gmail.com",
+      direccion: "Calle Uno 123",
+      region: "Región Metropolitana",
+      comuna: "Maipú",
+    })) {
+      input("checkout-" + campo, valor);
+    }
+  }
+
+  it("guarda la compra, descuenta stock y vacía el carrito", () => {
+    prepararCompra();
+    submit();
+
+    expect(screen.getByText("Compra exitosa")).toBeTruthy();
+
+    const pedidos = storage.read("orders", []);
+    expect(pedidos.length).toBe(1);
+    expect(pedidos[0].estado).toBe("exitosa");
+    expect(pedidos[0].total).toBe(product.precio * 2);
+    expect(storage.read("cart", [])).toEqual([]);
+    expect(storage.read("products", [])[0].stock)
+      .toBe(product.stock - 2);
+  });
+
+  it("conserva el carrito cuando falla el pago y permite reintentar", () => {
+    prepararCompra();
+    input("checkout-resultado", "fallo");
+    submit();
+
+    expect(screen.getByText("No se pudo realizar el pago")).toBeTruthy();
+    expect(storage.read("orders", [])).toEqual([]);
+    expect(storage.read("cart", [])[0].cantidad).toBe(2);
+    expect(storage.read("products", [])[0].stock).toBe(product.stock);
+
+    fireEvent.click(screen.getByText("Volver a intentar el pago"));
+    expect(screen.getByText("Finalizar compra")).toBeTruthy();
+  });
+
+  it("informa un error al guardar el pedido y conserva el carrito", () => {
+    prepararCompra();
+
+    const guardar = storage.write.bind(storage);
+    spyOn(storage, "write").and.callFake((clave, valor) =>
+      clave === "orders" ? false : guardar(clave, valor),
+    );
+
+    submit();
+
+    expect(
+      screen.getByText("No fue posible guardar el pedido."),
+    ).toBeTruthy();
+
+    expect(storage.read("cart", [])[0].cantidad).toBe(2);
+  });
+
+  it("rechaza una compra sin stock suficiente", () => {
+    storage.write(
+      "products",
+      initialProducts.map(p =>
+        p.codigo === product.codigo ? { ...p, stock: 1 } : p,
+      ),
+    );
+
+    prepararCompra();
+    submit();
+
+    expect(
+      screen.getByText(
+        "Uno o más productos no tienen stock suficiente.",
+      ),
+    ).toBeTruthy();
+
+    expect(storage.read("orders", [])).toEqual([]);
+  });
+
+  it("muestra un pedido guardado en administración", () => {
+    storage.write("session", {
+      nombre: "Admin",
+      correo: "admin@duoc.cl",
+      role: "admin",
+    });
+
+    storage.write("orders", [{
+      id: "HH-PRUEBA",
+      cliente: { correo: "lucas@gmail.com" },
+      fecha: "2026-10-22T12:00:00Z",
+      total: 2400,
+      estado: "exitosa",
+    }]);
+
+    mount(<Admin />);
+
+    fireEvent.click(
+      screen.getByText("Pedidos", { selector: "button" }),
+    );
+
+    expect(screen.getByText("HH-PRUEBA")).toBeTruthy();
+    expect(screen.getByText("lucas@gmail.com")).toBeTruthy();
+    expect(screen.getByText("$2.400")).toBeTruthy();
   });
 });
